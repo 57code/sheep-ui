@@ -7,13 +7,11 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .ts,.tsx,.vue src",
-    "precommit": "lint-staged"
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,tsx,vue}": [
-      "prettier --write src",
-      "yarn lint"
-    ]
+    "*.{ts,tsx,vue}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
     "eslint-plugin-prettier": "^4.0.0",
