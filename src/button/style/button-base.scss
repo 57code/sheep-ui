@@ -26,6 +26,10 @@
   &[disabled] {
     @apply cursor-not-allowed
   }
+
+  &.s-btn--block {
+    @apply block w-full
+  }
 }
 
 @mixin button-variant($variant, $pseudo: false) {

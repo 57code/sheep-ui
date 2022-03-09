@@ -12,18 +12,43 @@ const confirm = () => {
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <HelloWorld msg="Hello Sheep UI" />
-  <Test>
+  <!-- <Test>
     <template #default> aaaa </template>
     <template #title><h3>title</h3></template>
-  </Test>
-  <!-- 1.primary,secondary,text
-  2.尺寸size
-  3.disabled
-  4.块级block
-  5.iconbutton -->
-  <SButton type="primary" size="large">确定</SButton>
-  <SButton type="primary" size="medium" @click="confirm">确定</SButton>
-  <SButton type="primary" size="small" disabled @click="confirm">确定</SButton>
+  </Test> -->
+  <!-- 1.type:primary,secondary,text -->
+  <div>
+    <SButton type="primary">确定</SButton>
+    <SButton type="secondary">取消</SButton>
+    <SButton type="text">文本</SButton>
+  </div>
+  <!-- 2.size:small,medium,large -->
+  <div>
+    <SButton type="primary" size="small">small</SButton>
+    <SButton type="primary" size="medium">medium</SButton>
+    <SButton type="primary" size="large">large</SButton>
+  </div>
+  <div>
+    <SButton type="secondary" size="small">small</SButton>
+    <SButton type="secondary" size="medium">medium</SButton>
+    <SButton type="secondary" size="large">large</SButton>
+  </div>
+  <!-- 3. disabled -->
+  <div>
+    <SButton type="primary" @click="confirm">确定</SButton>
+    <SButton type="primary" disabled @click="confirm">disabled</SButton>
+  </div>
+  <div>
+    <SButton type="secondary" @click="confirm">确定</SButton>
+    <SButton type="secondary" disabled @click="confirm">disabled</SButton>
+  </div>
+  <div>
+    <SButton type="text" @click="confirm">确定</SButton>
+    <SButton type="text" disabled @click="confirm">disabled</SButton>
+  </div>
+  <!-- 4.block -->
+  <SButton type="primary" block>Confirm</SButton>
+  <SButton type="secondary" block>Cancel</SButton>
 </template>
 
 <style>
