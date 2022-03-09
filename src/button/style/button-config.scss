@@ -1,0 +1,76 @@
+// 所有不同type按钮自定义样式
+@import '../../style/variable.scss';
+
+// 按钮类型的配置
+$type: (
+  primary: (
+    color: $s-light-text,
+    background-color: $s-primary,
+  ),
+  secondary: (
+    color: $s-text,
+    background-color: $s-block,
+    border-color: $s-line,
+  ),
+  text: (
+    padding: 0,
+    color: $s-brand-active,
+  ),
+);
+
+// 伪类的配置
+$pseudo: (
+  primary: (
+    hover: (
+      background-color: $s-primary-hover,
+    ),
+    focus: (
+      background-color: $s-primary-hover,
+    ),
+    active: (
+      background-color: $s-primary-active,
+    ),
+  ),
+  secondary: (
+    hover: (
+      border-color: $s-form-control-line-active,
+      color: $s-brand-active,
+    ),
+    focus: (
+      border-color: $s-form-control-line-active,
+      color: $s-brand-active,
+    ),
+    active: (
+      border-color: $s-form-control-line-active,
+      color: $s-brand-active,
+    ),
+  ),
+  text: (
+    hover: (
+      color: $s-brand-active-focus,
+    ),
+    focus: (
+      color: $s-brand-active-focus,
+    ),
+    active: (
+      color: $s-brand-active-focus,
+    ),
+  )
+);
+
+// 按钮尺寸
+$size: (
+  small: (
+    height: 24px,
+    padding: 0 16px,
+    font-size: $s-font-size-sm,
+  ),
+  medium: (
+    font-size: $s-font-size-md,
+  ),
+  large: (
+    height: 32px,
+    padding: 0 24px,
+    font-size: $s-font-size-lg,
+  ),
+);

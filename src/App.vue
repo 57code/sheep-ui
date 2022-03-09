@@ -7,8 +7,19 @@ import Test from './components/Test'
 
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <Test></Test>
+  <HelloWorld msg="Hello Sheep UI" />
+  <Test>
+    <template #default> aaaa </template>
+    <template #title><h3>title</h3></template>
+  </Test>
+  <!-- 1.primary,secondary,text
+  2.尺寸size
+  3.disabled
+  4.块级block
+  5.iconbutton -->
+  <SButton type="primary" size="large">确定</SButton>
+  <SButton type="primary" size="medium">确定</SButton>
+  <SButton type="primary" size="small">确定</SButton>
 </template>
 
 <style>

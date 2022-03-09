@@ -1,0 +1,30 @@
+// 变量
+// 定义主题变量
+$s-border-radius: var(--s-border-radius, 2px); //一般圆角
+$s-font-size-sm: var(--s-font-size-md, 10px); //当组件size为''时使用此字号大小
+$s-font-size-md: var(--s-font-size-md, 12px); //当组件size为''时使用此字号大小
+$s-font-size-lg: var(--s-font-size-md, 14px); //当组件size为''时使用此字号大小
+$s-animation-duration-slow: var(--s-animation-duration-slow, 300ms);
+$s-animation-ease-in-out-smooth: var(
+  --s-animation-ease-in-out-smooth,
+  cubic-bezier(0.645, 0.045, 0.355, 1)
+);
+$s-light-text: var(--s-light-text, #ffffff); // 有色深色背景下字体颜色（固定）
+$s-primary: var(--s-primary, #5e7ce0); // 主要按钮，同品牌色
+$s-primary-hover: var(--s-primary-hover, #7693f5); // 主要按钮悬停
+$s-primary-active: var(--s-primary-active, #344899); // 主要按钮激活
+$s-text: var(--s-text, #252b3a); // 正文文本
+$s-block: var(
+  --s-block,
+  #ffffff
+); // 大面积的不可折叠区块的背景色（例如顶部导航背景色）
+$s-line: var(--s-line, #adb0b8); // 边框分割线，仅用于边框
+$s-form-control-line-active: var(
+  --s-form-control-line-active,
+  #5e7ce0
+); // 表单控件边框激活色，用于获得焦点
+$s-brand-active: var(--s-brand-active, #526ecc); // 品牌色激活色（加深）
+$s-brand-active-focus: var(
+  --s-brand-active-focus,
+  #344899
+); // 品牌色焦点色（重度加深）
