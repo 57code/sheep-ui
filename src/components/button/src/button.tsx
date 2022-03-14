@@ -5,14 +5,17 @@ export default defineComponent({
   name: 'SButton',
   props: buttonProps,
   setup(props: ButtonProps, { slots }) {
-    // size是新增的
-    const { type } = toRefs(props)
-
+    const { type, size, disabled, block } = toRefs(props)
     return () => {
-      // s-btn--${size.value}是新增的
+      const defaultSlot = slots.default ? slots.default() : '按钮'
+      // block
+      const blockCls = block.value ? 's-btn--block' : ''
       return (
-        <button class={`s-btn s-btn--${type.value}`}>
-          {slots.default ? slots.default() : '按钮'}
+        <button
+          disabled={disabled.value}
+          class={`s-btn s-btn--${type.value} s-btn--${size.value} ${blockCls}`}
+        >
+          {defaultSlot}
         </button>
       )
     }
