@@ -4,4 +4,7 @@ import App from './App.vue'
 import './index.scss'
 import Button from './button'
 
-createApp(App).use(Button).mount('#app')
+// 使用全量导出
+import SheepUI from '../build/'
+
+createApp(App).use(SheepUI).mount('#app')

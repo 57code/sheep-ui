@@ -6,16 +6,19 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.ts,.tsx,.vue",
+    "lint": "eslint . --ext .js,.ts,.tsx,.vue --fix",
     "prepare": "husky install",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "test": "vitest",
+    "build:components": "node ./scripts/build.js"
   },
   "dependencies": {
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@testing-library/vue": "^6.5.1",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-vue": "^2.2.0",
@@ -25,6 +28,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
+    "happy-dom": "^2.47.0",
     "husky": ">=6",
     "lint-staged": ">=10",
     "postcss": "^8.4.8",
@@ -35,6 +39,7 @@
     "vite": "^2.8.0",
     "vitepress": "^0.22.3",
     "vitepress-theme-demoblock": "^1.4.2",
+    "vitest": "^0.6.1",
     "vue-tsc": "^0.29.8"
   },
   "lint-staged": {

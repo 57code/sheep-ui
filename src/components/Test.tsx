@@ -41,7 +41,7 @@ export default defineComponent({
       return (
         <div onClick={withModifiers(inc, ['self'])}>
           test: {count.value}
-          <input type="text" v-focus v-model={count.value} />
+          {/* <input type="text" v-focus v-model={count.value} /> */}
           <div>{span}</div>
           <ul>
             {list.value.map(str => (
