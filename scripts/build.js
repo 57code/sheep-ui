@@ -39,7 +39,7 @@ const createPackageJson = name => {
     "version": "0.0.2",
     "main": "${name ? 'index.umd.js' : 'sheep-ui.umd.js'}",
     "module": "${name ? 'index.umd.js' : 'sheep-ui.es.js'}",
-    "author": "杨村长",
+    "author": "龙浩锋",
     "description": "羊村第一个组件库Sheep-UI，以后村里羊圈能不能建好就看它了！",
     "repository": {
       "type": "git",
