@@ -96,10 +96,12 @@ var ButtonPlugin = {
     installComponent(app, Button, options);
   }
 };
+var version = "0.1.0";
 const installs = [ButtonPlugin];
 var entry = {
+  version,
   install(app) {
     installs.forEach((p) => app.use(p));
   }
 };
-export { Button, entry as default };
+export { Button, entry as default, version };
