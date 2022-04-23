@@ -1,7 +1,7 @@
 import { computed, defineComponent, toRefs } from 'vue'
 import { ButtonProps, buttonProps } from './button-type'
 import { getComponentCls } from '../../_utils/global-config'
-
+import { call } from '../../_utils/call'
 export default defineComponent({
   name: 'Button',
   props: buttonProps,
@@ -19,14 +19,25 @@ export default defineComponent({
       }
     ])
 
+    const handleClick = (e: MouseEvent) => {
+      if (props.loading || props.disabled) return
+      if (props.onClick) call(props.onClick, e)
+    }
     return () => {
+      const { tag: Component, loading } = props
       const defaultSlot = slots.default ? slots.default() : '按钮'
       // block
       //   const blockCls = block.value ? 's-btn--block' : ''
       return (
-        <button disabled={disabled.value} class={classes.value}>
+        <Component
+          disabled={disabled.value}
+          class={classes.value}
+          onClick={handleClick}
+        >
+          {loading && <svg class="animate-spin" viewBox="0 0 24 24"></svg>}
+          {slots.icon && slots.icon()}
           {defaultSlot}
-        </button>
+        </Component>
       )
     }
   }
