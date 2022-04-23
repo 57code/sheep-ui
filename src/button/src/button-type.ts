@@ -1,8 +1,8 @@
-import { ExtractPropTypes, PropType } from 'vue'
+import { ExtractPropTypes, Prop, PropType } from 'vue'
 
 export type IButtonType = 'primary' | 'secondary' | 'text'
 export type IButtonSize = 'small' | 'medium' | 'large'
-
+export type EmitType<T> = T | T[]
 // button中的props定义
 export const buttonProps = {
   type: {
@@ -20,6 +20,18 @@ export const buttonProps = {
   block: {
     type: Boolean,
     default: false
+  },
+  tag: {
+    type: String as PropType<keyof HTMLElementTagNameMap>,
+    default: 'button'
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  // just for jsx
+  onClick: {
+    type: [Function, Array] as PropType<EmitType<(e: MouseEvent) => void>>
   }
 }
 
