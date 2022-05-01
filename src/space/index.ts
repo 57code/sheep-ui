@@ -4,7 +4,7 @@ import Sapce from './src/space'
 import { installComponent } from '../install'
 import type { SheepUIOptions } from '../_utils/global-config'
 // 具名导出
-export { Sapce }
+export { Sapce as SSpace }
 
 // 导出插件
 export default {
