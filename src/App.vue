@@ -18,17 +18,21 @@ const confirm = () => {
   </Test> -->
   <!-- 1.type:primary,secondary,text -->
   <div>
-    <SButton type="primary">确定</SButton>
-    <SButton
-      type="secondary"
-      tag="a"
-      href="https://anyway.fm/news.php"
-      @click="confirm"
-    >
-      <template #icon> icon </template>
-      取消
-    </SButton>
-    <SButton type="text">文本</SButton>
+    <SSpace :wrap="true" direction="vertical" fill>
+      <SButton type="primary">确定</SButton>
+      <!-- <div>xx</div> -->
+      <SButton
+        type="secondary"
+        tag="a"
+        href="https://anyway.fm/news.php"
+        @click="confirm"
+      >
+        <template #icon> icon </template>
+        取消
+      </SButton>
+      textNode
+      <SButton type="text">文本</SButton>
+    </SSpace>
   </div>
   <!-- 2.size:small,medium,large -->
   <div>
