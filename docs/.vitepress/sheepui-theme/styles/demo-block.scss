@@ -1,0 +1,68 @@
+@import './devui-vars.scss';
+
+
+.demo-block {
+  border: solid 1px $dividing-line !important;
+
+  &.hover {
+    box-shadow: none !important;
+  }
+
+  .source {
+    .demo-spacing {
+      & > * {
+        margin: 0 8px 8px 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &:last-child {
+        & > * {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.demo-block-control {
+  background-color: $base-bg !important;
+  border-top: solid 1px $dividing-line !important;
+
+  &:hover {
+    color: $brand !important;
+  }
+
+  .control-button {
+    color: $brand !important;
+  }
+}
+
+.meta {
+  border-top: solid 1px $dividing-line !important;
+  background-color: $area !important;
+
+  .description {
+    border: solid 1px $dividing-line !important;
+    color: $text !important;
+    background-color: $base-bg !important;
+  }
+}
+
+[class^=version-tag] {
+  display: inline-block;
+  padding: 0 4px;
+  line-height: 20px;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.version-tag-1 {
+  background-color: #3dcca6;
+}
+
+.version-tag-2 {
+  background-color: #f66f6a;
+}

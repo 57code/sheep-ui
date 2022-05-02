@@ -9,7 +9,11 @@ const sidebar = {
     { text: '反馈' },
     { text: '数据录入' },
     { text: '数据展示' },
-    { text: '布局' }
+    { text: '布局',
+      children:[
+        { text:'Space 间距',link:'/components/space/'}
+      ]
+    }
   ]
 }
 
@@ -21,7 +25,9 @@ const config = {
     config(md) {
       // 这里可以使用markdown-it插件
       const { demoBlockPlugin } = require('vitepress-theme-demoblock')
-      md.use(demoBlockPlugin)
+      md.use(demoBlockPlugin,{
+        cssPreprocessor: 'scss'
+      })
     }
   }
 }

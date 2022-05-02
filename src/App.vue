@@ -2,7 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
-import Test from './components/Test'
+// import Test from './components/Test'
 
 const confirm = () => {
   console.log('confirm!!!')
@@ -18,9 +18,21 @@ const confirm = () => {
   </Test> -->
   <!-- 1.type:primary,secondary,text -->
   <div>
-    <SButton type="primary">确定</SButton>
-    <SButton type="secondary">取消</SButton>
-    <SButton type="text">文本</SButton>
+    <SSpace :wrap="true" direction="vertical" fill>
+      <SButton type="primary">确定</SButton>
+      <!-- <div>xx</div> -->
+      <SButton
+        type="secondary"
+        tag="a"
+        href="https://anyway.fm/news.php"
+        @click="confirm"
+      >
+        <template #icon> icon </template>
+        取消
+      </SButton>
+      textNode
+      <SButton type="text">文本</SButton>
+    </SSpace>
   </div>
   <!-- 2.size:small,medium,large -->
   <div>
