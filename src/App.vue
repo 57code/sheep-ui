@@ -3,7 +3,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
 // import Test from './components/Test'
-
+import { AlignCenterIcon } from './icon/align-center/align-center'
 const confirm = () => {
   console.log('confirm!!!')
 }
@@ -61,6 +61,7 @@ const confirm = () => {
   <!-- 4.block -->
   <SButton type="primary" block>Confirm</SButton>
   <SButton type="secondary" block>Cancel</SButton>
+  <AlignCenterIcon />
 </template>
 
 <style>

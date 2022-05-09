@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 // 引入vite导出的build方法，用它来创建
 const { defineConfig, build } = require('vite')
 const vue = require('@vitejs/plugin-vue')
