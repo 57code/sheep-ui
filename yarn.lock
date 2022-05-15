@@ -1056,10 +1056,10 @@
   "resolved" "https://registry.npmmirror.com/@vue/shared/-/shared-3.2.31.tgz"
   "version" "3.2.31"
 
-"@vue/test-utils@^2.0.0-rc.18":
-  "integrity" "sha512-aifolXjVdsogjaLmDoZ0FU8vN+R67aWmg9OuVeED4w5Ij5GFQLrlhM19uhWe/r5xXUL4fXMk3pX5wW6FJP1NcQ=="
-  "resolved" "https://registry.npmmirror.com/@vue/test-utils/-/test-utils-2.0.0-rc.18.tgz"
-  "version" "2.0.0-rc.18"
+"@vue/test-utils@^2.0.0-rc.18", "@vue/test-utils@^2.0.0-rc.21":
+  "integrity" "sha512-wIJR4e/jISBKVKfiod3DV32BlDsoD744WVCuCaGtaSKvhvTL9gI5vl2AYSy00V51YaM8dCOFi3zcpCON8G1WqA=="
+  "resolved" "https://registry.npmjs.org/@vue/test-utils/-/test-utils-2.0.0-rc.21.tgz"
+  "version" "2.0.0-rc.21"
 
 "abab@^2.0.5", "abab@^2.0.6":
   "integrity" "sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA=="
