@@ -29,6 +29,7 @@ export const isSlot = (vnode: VNode) =>
 export const isArrayNode = (vnode: VNode) =>
   vnode && vnode.shapeFlag & ShapeFlags.ARRAY_CHILDREN
 export const isFragment = (vnode: VNode) => vnode && vnode.type === Fragment
+
 export function getAllElements(children: VNode[] | undefined) {
   const result: VNode[] = []
 
