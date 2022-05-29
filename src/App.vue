@@ -4,8 +4,24 @@
 import HelloWorld from './components/HelloWorld.vue'
 // import Test from './components/Test'
 import { AlignCenterIcon } from './icon/align-center/align-center'
+import { UserIcon } from './icon/user/user'
+import { InfoCircleIcon } from './icon/info-circle/info-circle'
+import { ref } from 'vue'
+const text = ref('')
 const confirm = () => {
   console.log('confirm!!!')
+}
+const handleClear = e => {
+  console.log(e, 'clear')
+}
+const hanldeBlur = e => {
+  console.log(e, 'blur')
+}
+const handleFocus = e => {
+  console.log(e, 'focus')
+}
+const handlePressEnter = e => {
+  console.log(e, 'pressEnter')
 }
 </script>
 
@@ -62,6 +78,17 @@ const confirm = () => {
   <SButton type="primary" block>Confirm</SButton>
   <SButton type="secondary" block>Cancel</SButton>
   <AlignCenterIcon />
+  <div>
+    <SInput default-value="xxx" placeholder="请输入你的名字" allow-clear>
+      <template #prefix>
+        <UserIcon />
+      </template>
+      <template #suffix>
+        <InfoCircleIcon />
+      </template>
+    </SInput>
+  </div>
+  <input />
 </template>
 
 <style>

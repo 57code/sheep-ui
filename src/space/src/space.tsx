@@ -51,7 +51,6 @@ export default defineComponent({
     ])
     return () => {
       const children = getAllElements(slots.default?.())
-
       return (
         <div class={classes.value}>
           {children.map((item, index) => (

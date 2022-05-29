@@ -39,6 +39,7 @@
     "glob": "^8.0.1",
     "happy-dom": "^2.47.0",
     "husky": ">=6",
+    "jest": "^28.1.0",
     "jsdom": "^19.0.0",
     "lint-staged": ">=10",
     "postcss": "^8.4.8",

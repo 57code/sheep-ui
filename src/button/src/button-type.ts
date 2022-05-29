@@ -1,8 +1,9 @@
-import { ExtractPropTypes, Prop, PropType } from 'vue'
+import { ExtractPropTypes, PropType } from 'vue'
+import { EmitType } from '../../types'
 
 export type IButtonType = 'primary' | 'secondary' | 'text'
 export type IButtonSize = 'small' | 'medium' | 'large'
-export type EmitType<T> = T | T[]
+
 // button中的props定义
 export const buttonProps = {
   type: {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
-    "module": "CommonJS",
+    "module": "esnext",
     "moduleResolution": "node"
   },
   "include": ["vite.config.ts"]

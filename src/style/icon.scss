@@ -10,3 +10,10 @@
   outline: none;
   stroke: currentColor;
 }
+
+.#{$prefix}-hover-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 12px;
+}
