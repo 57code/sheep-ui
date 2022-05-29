@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd ./src/index.ts create",
-    "build": "tsc"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "cli": "node ./build/src/index.js create"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "fs-extra": "^10.1.0",
     "inquirer": "^8.2.2",
     "kolorist": "^1.5.1"
+  },
+  "dependencies": {
+    "esbuild": "^0.14.38"
   }
 }
