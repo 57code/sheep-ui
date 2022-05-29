@@ -14,11 +14,11 @@ export const getIconTsx = ({
 }) => `import { getComponentCls } from '../../_utils/global-config'
 import { isNumber } from '../../_utils/is'
 interface IconProps {
-  size: number | string
+  size?: number | string
   strokeWidth?: number
   strokeLinecap?: 'butt' | 'round' | 'square'
   strokeLinejoin?: 'bevel' | 'miter' | 'round'
-  spin: boolean
+  spin?: boolean
 }
 export const ${componentName} = (props: IconProps) => {
   const {
