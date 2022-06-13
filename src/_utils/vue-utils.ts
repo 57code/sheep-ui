@@ -1,5 +1,6 @@
-import { Fragment, Comment } from 'vue'
+import { Fragment, Comment, cloneVNode } from 'vue'
 import type { VNode } from 'vue'
+import { isArray, isFunction } from './is'
 
 export const enum ShapeFlags {
   ELEMENT = 1,
@@ -14,6 +15,7 @@ export const enum ShapeFlags {
   COMPONENT_KEPT_ALIVE = 1 << 9,
   COMPONENT = ShapeFlags.STATEFUL_COMPONENT | ShapeFlags.FUNCTIONAL_COMPONENT
 }
+type Data = Record<string, any>
 
 export const isTextNode = (vnode: VNode) =>
   vnode && vnode.shapeFlag & ShapeFlags.TEXT_CHILDREN
@@ -26,7 +28,7 @@ export const isElement = (vnode: VNode) =>
 
 export const isSlot = (vnode: VNode) =>
   vnode && vnode.shapeFlag & ShapeFlags.SLOTS_CHILDREN
-export const isArrayNode = (vnode: VNode) =>
+export const isArrayChildrenNode = (vnode: VNode) =>
   vnode && vnode.shapeFlag & ShapeFlags.ARRAY_CHILDREN
 export const isFragment = (vnode: VNode) => vnode && vnode.type === Fragment
 
@@ -49,4 +51,62 @@ export function getAllElements(children: VNode[] | undefined) {
   }
 
   return result
+}
+
+export const mergeFirstChild = (
+  children: VNode[] | undefined,
+  extraProps: Data | ((vnode?: VNode) => Data)
+): boolean => {
+  if (!children?.length) return false
+
+  for (let i = 0; i < children.length; i++) {
+    const vnode = children[i]
+    if (isElement(vnode) || isComponent(vnode)) {
+      const props = isFunction(extraProps) ? extraProps(vnode) : extraProps
+      children[i] = cloneVNode(vnode, props, true)
+      return true
+    }
+    const _children = getArrayChildren(vnode)
+    if (_children && _children.length) {
+      const result = mergeFirstChild(_children, extraProps)
+      if (result) return result
+    }
+  }
+
+  return false
+}
+
+function getArrayChildren(vnode: VNode): VNode[] | undefined {
+  if (isArrayChildrenNode(vnode)) return vnode.children as VNode[]
+  if (isArray(vnode)) return vnode
+
+  return undefined
+}
+
+export function getFirstElementFromChildren(children: VNode[]) {
+  for (const child of children) {
+    const element = getFirstElementFromVnode(child)
+    if (element) return element
+  }
+  return undefined
+}
+
+export const getFirstElementFromVnode = (
+  vnode: VNode
+): HTMLElement | undefined => {
+  if (isElement(vnode)) return vnode.el as HTMLElement
+
+  if (isComponent(vnode)) {
+    if ((vnode.el as Node).nodeType === Node.ELEMENT_NODE)
+      return vnode.el as HTMLElement
+
+    if (vnode.component?.subTree) {
+      const element = getFirstElementFromVnode(vnode.component?.subTree)
+      if (element) return element
+    }
+  } else {
+    const children = getArrayChildren(vnode)
+    if (children) return getFirstElementFromChildren(children)
+  }
+  return undefined
 }
