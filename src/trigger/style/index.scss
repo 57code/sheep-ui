@@ -1,0 +1,12 @@
+@import '../../style/variable.scss';
+
+$trigger-prefix-cls:#{$prefix}-trigger;
+
+.#{$trigger-prefix-cls} {
+  // &-wrapper {
+  //   display: inline-block;
+  // }
+  &-popup {
+    position: absolute;
+  }
+}
