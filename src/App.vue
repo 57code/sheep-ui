@@ -11,7 +11,7 @@ const text = ref('')
 <template>
   <STrigger
     :default-popup-visible="true"
-    trigger="hover"
+    trigger="click"
     :unmount-on-close="true"
   >
     <SButton>Click me</SButton>
