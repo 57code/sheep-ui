@@ -1,4 +1,4 @@
-import Theme from 'vitepress/dist/client/theme-default'
+import Theme from 'vitepress/theme'
 // import HelloWorld from '../../../src/components/HelloWorld'
 import Test from '../../../src/components/Test'
 
