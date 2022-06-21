@@ -9,7 +9,8 @@ export const basicProps = {
     default: undefined
   },
   defaultPopupVisible: {
-    type: Boolean as PropType<boolean>
+    type: Boolean as PropType<boolean>,
+    default: false
   },
   disabled: {
     type: Boolean as PropType<boolean>,

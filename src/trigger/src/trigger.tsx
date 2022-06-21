@@ -16,6 +16,7 @@ import basicProps from './trigger-type'
 import { getComponentCls } from '../../_utils/global-config'
 import { mergeFirstChild } from '../../_utils/vue-utils'
 import { useFirstElement } from '../../_hooks/useFirstElement'
+import usePopupManager from '../../_hooks/usePopupManage'
 import { getElementScrollRect, genPopupStyle } from './helper'
 import { off, on } from '../../_utils/dom'
 
@@ -43,11 +44,9 @@ export default defineComponent({
       ...props.popupStyle,
       ...innerPopupStyle.value
     }))
-    // TODO 暂时写死
-    const zIndex = ref(500)
-    let outsideListener = false
 
-    console.log('setuped')
+    const { zIndex } = usePopupManager('popup', getVisible)
+    let outsideListener = false
 
     // dynamically calculate the style if popup
     const updatePopupStyle = () => {
