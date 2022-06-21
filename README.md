@@ -15,3 +15,4 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 ## 报道处
 - Theseus：小小羊报道
 - yanzefeng：喜羊羊报道
+- 冉羊羊 报道
