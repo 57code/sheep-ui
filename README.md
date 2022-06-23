@@ -18,6 +18,7 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 - yanzefeng：喜羊羊报道
 - 冉羊羊 报道
 - walker报道 
+- Yamiqu报道
 - 飘雪的季节：雪羊羊报道
 - artsmp 报道
 - yuanpengju 报道
