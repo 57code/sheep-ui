@@ -6,7 +6,11 @@ const SheepUI = {
   version,
   install(app: App) {
     Object.keys(components).forEach(key => {
-      app.use(components[key as keyof typeof components] as Plugin)
+      const Component = components[key as keyof typeof components]
+      // 遍历可能有别的对象，只对插件执行use方法
+      if ('install' in Component || typeof Component === 'function') {
+        app.use(Component as Plugin)
+      }
     })
   }
 }
