@@ -27,6 +27,7 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 - 飘雪的季节：雪羊羊报道
 - artsmp 报道
 - yuanpengju 报道
+- houshengren: 生羊羊
 - yuangenbao : 保羊羊报道
 - shenjian 报道
 - 婵羊羊 报道
