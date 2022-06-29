@@ -10,7 +10,7 @@ export default defineComponent({
 
     const prefixCls = getComponentCls('btn')
 
-    //依赖收集
+    //新手村报道
     const classes = computed(() => [
       prefixCls,
       `${prefixCls}--${type.value}`,
@@ -20,7 +20,6 @@ export default defineComponent({
       }
     ])
 
-    //点击事件
     const handleClick = (e: MouseEvent) => {
       if (props.loading || props.disabled) return
       if (props.onClick) call(props.onClick, e)
