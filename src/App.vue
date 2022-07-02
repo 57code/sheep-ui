@@ -1,17 +1,12 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { AlignCenterIcon } from './icon/align-center/align-center'
-import { UserIcon } from './icon/user/user'
-import { InfoCircleIcon } from './icon/info-circle/info-circle'
-import { ref } from 'vue'
-const text = ref('')
 </script>
 
 <template>
   <STrigger
     :default-popup-visible="true"
-    trigger="hover"
+    trigger="click"
     :unmount-on-close="true"
   >
     <SButton>Click me</SButton>

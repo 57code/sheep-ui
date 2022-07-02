@@ -12,6 +12,13 @@
     "lib": ["esnext", "dom"],
     "types": ["vitest/globals"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","scripts/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "scripts/**/*.ts",
+    "docs/.vitepress/theme"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

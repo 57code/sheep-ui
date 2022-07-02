@@ -1,5 +1,138 @@
-@import './devui-vars.scss';
+$dividing-line: #dfe1e6;
+$dividing-line-dark: #3b3b3b;
+$base-bg: #ffffff;
+$base-bg-dark: #2c2c2c;
+$brand: #42b883;
+$area: #f8f8f8;
+$area-dark: #242424;
+$text:#252b3a;
+$text-dark:#f8f8f8;
+$font-size: 12px;
+$disabled-line: #dfe1e6;
+$border-radius: 3px;
+$disabled-bg:#f5f5f6;
+$disabled-text:#adb0b8;
 
+.dark {
+  .demo-block {
+    border: solid 1px $dividing-line-dark !important;
+  }
+  .demo-block-control {
+    background-color: $base-bg-dark !important;
+    border-top: solid 1px $dividing-line-dark !important;
+  
+    &:hover {
+      color: $brand !important;
+    }
+  
+    .control-button {
+      color: $brand !important;
+    }
+
+    .control-icon {
+      color: #565656
+    }
+  }
+  .meta {
+    border-top: solid 1px $dividing-line-dark !important;
+    background-color: $area-dark !important;
+  
+    .description {
+      border:transparent !important;
+      color: $text-dark !important;
+      background-color: transparent !important;
+    }
+
+    .highlight div[class*='language-'] {
+      margin: 0 !important;
+      border-radius: 0;
+      border: solid 1px $dividing-line-dark !important;
+      background-color: $base-bg-dark !important;
+    }
+  }
+
+  .vp-doc [class*='language-'] {
+    pre {
+      background-color: $base-bg-dark !important;
+      
+      code{
+        background-color: $base-bg-dark !important;
+        border-radius: 10;
+        color: $text-dark !important
+      }
+    }
+  }
+}
+
+.demo-block {
+  border: solid 1px $dividing-line !important;
+
+  &.hover {
+    box-shadow: none !important;
+  }
+
+  .source {
+    .demo-spacing {
+      & > * {
+        margin: 0 8px 8px 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &:last-child {
+        & > * {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.demo-block-control {
+  background-color: $base-bg !important;
+  border-top: solid 1px $dividing-line !important;
+
+  &:hover {
+    color: $brand !important;
+  }
+
+  .control-button {
+    color: $brand !important;
+  }
+}
+
+.meta {
+  border-top: solid 1px $dividing-line !important;
+  background-color: $area !important;
+
+  .description {
+    border: solid 1px $dividing-line !important;
+    color: $text !important;
+    background-color: $base-bg !important;
+  }
+}
+
+[class^=version-tag] {
+  display: inline-block;
+  padding: 0 4px;
+  line-height: 20px;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.version-tag-1 {
+  background-color: #3dcca6;
+}
+
+.version-tag-2 {
+  background-color: #f66f6a;
+}
+
+
+
+// 代码样式
 code {
   margin: 0;
   border-radius: 3px;
@@ -298,3 +431,5 @@ div[class~='language-vue']:before {
 .token.inserted {
   color: green;
 }
+
+
