@@ -1,4 +1,4 @@
-import * as inquirer from 'inquirer'
+import * as inquirer from 'inquirer' //inquirer版本8.2.2写法，只支持cjs
 import { red } from 'kolorist'
 import createComponent from '../shared/create-component'
 
