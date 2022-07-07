@@ -10,6 +10,7 @@ export default defineComponent({
 
     const prefixCls = getComponentCls('btn')
 
+    //新手村报道
     const classes = computed(() => [
       prefixCls,
       `${prefixCls}--${type.value}`,
