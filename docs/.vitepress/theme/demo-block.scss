@@ -13,6 +13,13 @@ $border-radius: 3px;
 $disabled-bg:#f5f5f6;
 $disabled-text:#adb0b8;
 
+// 点击复制代码 message样式修复
+.demoblock-message-wrap{
+  .demoblock-message-content{
+    background-color: #3dcca6 !important;
+  }
+}
+
 .dark {
   .demo-block {
     border: solid 1px $dividing-line-dark !important;
