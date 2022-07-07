@@ -34,7 +34,6 @@ export function genPopupStyle(
 
 function genPopupOffset(triggerRect: DOMRect, popupRect: DOMRect) {
   // 默认从底部弹出
-  console.log(triggerRect, popupRect)
   return {
     top: triggerRect.bottom,
     left: triggerRect.left + triggerRect.width / 2 - popupRect.width / 2
