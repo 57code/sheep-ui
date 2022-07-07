@@ -1,7 +1,7 @@
 import { upperFirst } from './utils'
 // 创建组件核心文件模板
 export default function genCoreTemplate(name: string) {
-  const compName = 'S' + upperFirst(name)
+  const compName = upperFirst(name)
   const propsTypeName = upperFirst(name) + 'Props'
   const propsName = name + 'Props'
   const propsFileName = name + '-type'

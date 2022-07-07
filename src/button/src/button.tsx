@@ -9,7 +9,7 @@ export default defineComponent({
     const { type, size, disabled, block } = toRefs(props)
 
     const prefixCls = getComponentCls('btn')
-
+    console.log(prefixCls)
     //新手村报道
     const classes = computed(() => [
       prefixCls,
