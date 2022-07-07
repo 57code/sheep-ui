@@ -27,6 +27,7 @@ export const getComponentPrefix = (options?: SheepUIOptions): string =>
 // 获取组件class
 export const getComponentCls = (componentName?: string): string => {
   const instance = getCurrentInstance()
+  console.log('instance', instance)
   //TODO 后期需要配合config-provider组件来获取全局prefixCls ,优先级 config.classPrefix  > options.classPrefix > CLASS_PREFIX
 
   const prefix =
@@ -34,6 +35,7 @@ export const getComponentCls = (componentName?: string): string => {
       ?.classPrefix ?? CLASS_PREFIX
 
   if (componentName) {
+    console.log(prefix)
     return `${prefix}-${componentName}`
   }
 
