@@ -1,4 +1,6 @@
-.s-tree {
-  /* your component style */
-
-}
+  .s-tree {
+    /* your component style */
+    &-node{
+      text-align: left;
+    }
+  }
