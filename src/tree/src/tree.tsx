@@ -5,7 +5,7 @@ import '../style/tree.scss'
 const NODE_HEIGHT = 28
 const NODE_INDENT = 24
 export default defineComponent({
-  name: 'STree',
+  name: 'Tree',
   props: treeProps,
   setup(props: TreeProps) {
     // 获取data
