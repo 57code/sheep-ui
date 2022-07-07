@@ -1,4 +1,4 @@
-import { setGlobalConfig, getComponentPrefix } from './_utils/global-config'
+import { setGlobalConfig } from './_utils/global-config'
 import type { SheepUIOptions } from './_utils/global-config'
 import type { App } from 'vue'
 
@@ -9,11 +9,11 @@ export function installComponent(
   component: ComponentType,
   options?: SheepUIOptions
 ) {
-  const componentPrefix = getComponentPrefix(options)
-  const registered = app.component(componentPrefix + component.name)
+  console.log(component.name)
+  const registered = app.component(component.name)
 
   if (!registered) {
     setGlobalConfig(app, options)
-    app.component(componentPrefix + component.name, component)
+    app.component(component.name, component)
   }
 }

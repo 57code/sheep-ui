@@ -3,7 +3,7 @@ import { ButtonProps, buttonProps } from './button-type'
 import { getComponentCls } from '../../_utils/global-config'
 import { call } from '../../_utils/call'
 export default defineComponent({
-  name: 'Button',
+  name: 'SButton',
   props: buttonProps,
   setup(props: ButtonProps, { slots }) {
     const { type, size, disabled, block } = toRefs(props)

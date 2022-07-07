@@ -21,7 +21,7 @@ import { getElementScrollRect, genPopupStyle } from './helper'
 import { off, on } from '../../_utils/dom'
 
 export default defineComponent({
-  name: 'Trigger',
+  name: 'STrigger',
   props: basicProps,
   emits: ['update:popupVisible', 'change', 'show', 'hide'],
   setup(props, { emit, slots }) {
