@@ -55,6 +55,9 @@ const tree = [
   }
 ]
 const TreeData = reactive(tree)
+const handleClick = (e: MouseEvent) => {
+  console.log(e)
+}
 </script>
 
 <template>
@@ -64,7 +67,7 @@ const TreeData = reactive(tree)
     :unmount-on-close="true"
   >
     <STree :data="TreeData" />
-    <SButton>Click me</SButton>
+    <SButton @click="handleClick">Click me</SButton>
     <template #content>
       <div class="demo-basic">luanhanxiao is a good man</div>
     </template>

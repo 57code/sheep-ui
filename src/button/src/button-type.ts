@@ -30,6 +30,10 @@ export const buttonProps = {
     type: Boolean,
     default: false
   },
+  attrType: {
+    type: String as PropType<'button' | 'submit' | 'reset'>,
+    default: 'button'
+  },
   // just for jsx
   onClick: {
     type: [Function, Array] as PropType<EmitType<(e: MouseEvent) => void>>

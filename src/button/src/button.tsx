@@ -6,7 +6,7 @@ export default defineComponent({
   name: 'Button',
   props: buttonProps,
   setup(props: ButtonProps, { slots }) {
-    const { type, size, disabled, block } = toRefs(props)
+    const { type, size, disabled, block, attrType } = toRefs(props)
 
     const prefixCls = getComponentCls('btn')
     console.log(prefixCls)
@@ -34,6 +34,7 @@ export default defineComponent({
           disabled={disabled.value}
           class={classes.value}
           onClick={handleClick}
+          type={attrType}
         >
           {loading && <svg class="animate-spin" viewBox="0 0 24 24"></svg>}
           {slots.icon && slots.icon()}
