@@ -68,12 +68,15 @@ export default defineComponent({
                 )}
                 {/** 复选框 */}
                 {checkable.value && (
-                  <input
-                    type="checkbox"
-                    style={{ marginRight: '8px' }}
-                    v-model={treeNode.checked}
-                    onClick={() => toggleCheckNode(treeNode)}
-                  ></input>
+                  <span class={`relative ${treeNode.inChecked ? 's-tree__inChecked' : ''}`}>
+                    {treeNode.inChecked && <span class="s-tree-checkbox__inner cursor-pointer" onClick={() => toggleCheckNode(treeNode)}>-</span>}
+                    <input
+                      type="checkbox"
+                      style={{ marginRight: '8px' }}
+                      v-model={treeNode.checked}
+                      onClick={() => toggleCheckNode(treeNode)}
+                    ></input>
+                  </span>
                 )}
                 {/** 标签 */}
                 {slots.content ? slots.content(treeNode) : treeNode.label}
