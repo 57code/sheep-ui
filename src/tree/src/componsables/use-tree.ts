@@ -49,21 +49,27 @@ export function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     }
     return result
   }
+  const getParent = (node: IInnerTreeNode): IInnerTreeNode => {
+    const parentNode = innerData.value.find(item => item.id === node.parentId)
+    return parentNode as IInnerTreeNode
+  }
   // 子-父联动 并且设置父节点选中内容
   const setChecked = (node: IInnerTreeNode) => {
     // 获取父节点
-    const parentNode = innerData.value.find(item => item.id === node.parentId)
+    const parentNode = getParent(node)
     if (!parentNode) return
     // 获取兄弟节点：相当于获取 parentNode 的直接子节点
     const siblingNodes = getChildren(parentNode, false)
     // 兄弟节点是否全部选中状态
     const siblingCheckStatus = siblingNodes.every(sibling => sibling.checked)
     parentNode.checked = siblingCheckStatus
-    
+    pa
     const siblingIncheckedStatus = siblingNodes.some(child => child.checked)
-    if (siblingCheckStatus) { // 全部选中
+    if (siblingCheckStatus) {
+      // 全部选中
       parentNode.inChecked = false
-    } else if (siblingIncheckedStatus) { // 兄弟节点中存在选中的节点
+    } else if (siblingIncheckedStatus) {
+      // 兄弟节点中存在选中的节点
       parentNode.inChecked = true
     } else {
       parentNode.inChecked = false
