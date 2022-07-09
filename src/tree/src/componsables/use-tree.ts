@@ -59,7 +59,7 @@ export function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     const parentNode = getParent(node)
     if (!parentNode) return
     // 获取兄弟节点：相当于获取 parentNode 的直接子节点
-    const siblingNodes = getChildren(parentNode, false)
+    const siblingNodes = getChildren(parentNode, true)
     // 兄弟节点是否全部选中状态
     const siblingCheckStatus = siblingNodes.every(sibling => sibling.checked)
     parentNode.checked = siblingCheckStatus
