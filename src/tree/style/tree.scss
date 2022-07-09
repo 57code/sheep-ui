@@ -3,4 +3,18 @@
     &-node{
       text-align: left;
     }
+    .s-tree-checkbox__inner {
+      @apply absolute;
+      position: absolute;
+      left: 0px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #5468ff;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+    }
   }

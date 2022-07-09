@@ -59,12 +59,22 @@ export function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     // 兄弟节点是否全部选中状态
     const siblingCheckStatus = siblingNodes.every(sibling => sibling.checked)
     parentNode.checked = siblingCheckStatus
+    
+    const siblingIncheckedStatus = siblingNodes.some(child => child.checked)
+    if (siblingCheckStatus) { // 全部选中
+      parentNode.inChecked = false
+    } else if (siblingIncheckedStatus) { // 兄弟节点中存在选中的节点
+      parentNode.inChecked = true
+    } else {
+      parentNode.inChecked = false
+    }
     if (parentNode.parentId) setChecked(parentNode)
   }
   // checkBox click 事件
   const toggleCheckNode = (node: IInnerTreeNode) => {
     // 避免初始化的时候 node 中没有 checked 设置
     node.checked = !node.checked
+    node.inChecked = false // 重置待选中状态
     // 父 => 联动
     // 获取子节点，并同步他们的选中状态和父节点一致
     getChildren(node).forEach(child => {
