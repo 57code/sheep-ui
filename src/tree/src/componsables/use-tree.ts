@@ -63,7 +63,6 @@ export function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     // 兄弟节点是否全部选中状态
     const siblingCheckStatus = siblingNodes.every(sibling => sibling.checked)
     parentNode.checked = siblingCheckStatus
-    pa
     const siblingIncheckedStatus = siblingNodes.some(child => child.checked)
     if (siblingCheckStatus) {
       // 全部选中
