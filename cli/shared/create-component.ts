@@ -6,6 +6,7 @@ import genTypesTemplate from '../template/types'
 import { genStyleTemplate } from '../template/style'
 import genTestTemplate from '../template/test'
 import genIndexTemplate from '../template'
+import { WriteFileOptions } from 'fs'
 
 export interface ComponentMeta {
   name: string
@@ -13,7 +14,7 @@ export interface ComponentMeta {
   category: string
 }
 
-const WRITE_FILE_OPTIONS = { encoding: 'utf-8' }
+const WRITE_FILE_OPTIONS: WriteFileOptions = { encoding: 'utf-8' }
 
 export default function createComponent(meta: ComponentMeta) {
   const { name } = meta
@@ -41,16 +42,16 @@ export default function createComponent(meta: ComponentMeta) {
 
   // 核心文件：组件样式文件
   // 样式文件
-  const styleFilePath = styleDir + `/${meta.name}.scss`
-  writeFileSync(styleFilePath, genStyleTemplate(meta.name), WRITE_FILE_OPTIONS)
+  const styleFilePath = styleDir + `/${name}.scss`
+  writeFileSync(styleFilePath, genStyleTemplate(name), WRITE_FILE_OPTIONS)
 
   // 核心文件：测试文件
-  const testFilePath = testDir + `/${meta.name}.test.ts`
-  writeFileSync(testFilePath, genTestTemplate(meta.name), WRITE_FILE_OPTIONS)
+  const testFilePath = testDir + `/${name}.test.ts`
+  writeFileSync(testFilePath, genTestTemplate(name), WRITE_FILE_OPTIONS)
 
   // 组件索引文件
   const indexFilePath = componentDir + `/index.ts`
-  writeFileSync(indexFilePath, genIndexTemplate(meta.name), WRITE_FILE_OPTIONS)
+  writeFileSync(indexFilePath, genIndexTemplate(name), WRITE_FILE_OPTIONS)
 
   // 创建成功通知
   console.log(
