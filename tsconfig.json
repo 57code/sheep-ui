@@ -6,6 +6,7 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
+    "types": ["vite/client"],
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
