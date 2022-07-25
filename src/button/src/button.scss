@@ -27,13 +27,21 @@ $s-brand-active-focus: var(
   #344899
 ); // 品牌色焦点色（重度加深）
 
+$s-font-size-sm: var(--s-font-size-md, 10px); //当组件size为''时使用此字号大小
+$s-font-size-md: var(--s-font-size-md, 12px); //当组件size为''时使用此字号大小
+$s-font-size-lg: var(--s-font-size-md, 14px); //当组件size为''时使用此字号大小
+
+$s-primary-disabled: var(--s-primary-disabled, #98a8df); // 主要按钮禁用状态
+$s-disabled-text: var(--s-disabled-text, #757a83); // 禁用文本
+$s-disabled-bg: var(--s-disabled-bg, #c6c9cf); // 禁用背景
+$s-disabled-line: var(--s-disabled-line, #a5a8ad); // 禁用边框
+
 .s-btn {
   // 布局样式
   @apply inline-flex items-center justify-center;
 
   // 元素属性
-  @apply 
-  border-[1px] border-solid border-transparent 
+  @apply border-[1px] border-solid border-transparent 
   h-[28px] py-0 px-[20px]
   bg-transparent;
   border-radius: $s-border-radius;
@@ -60,9 +68,13 @@ $s-brand-active-focus: var(
     &:focus {
       background-color: $s-primary-hover;
     }
-
     &:active {
       background-color: $s-primary-active;
+    }
+    &:disabled {
+      color: $s-light-text;
+      background: $s-primary-disabled;
+      border: none;
     }
   }
 
@@ -78,6 +90,11 @@ $s-brand-active-focus: var(
       border-color: $s-form-control-line-active;
       color: $s-brand-active;
     }
+    &:disabled {
+      color: $s-disabled-text;
+      background: $s-disabled-bg;
+      border: 1px solid $s-disabled-line;
+    }
   }
 
   // 文字按钮
@@ -90,5 +107,38 @@ $s-brand-active-focus: var(
     &:active {
       color: $s-brand-active-focus;
     }
+    &:disabled {
+      color: $s-disabled-text;
+    }
+  }
+
+  // small尺寸
+  &.s-btn--small {
+    height: 24px;
+    padding: 0 16px;
+    font-size: $s-font-size-sm;
+  }
+
+  // 次要按钮
+  &.s-btn--medium {
+    font-size: $s-font-size-md;
+  }
+
+  // 文字按钮
+  &.s-btn--large {
+    height: 32px;
+    padding: 0 24px;
+    font-size: $s-font-size-lg;
+  }
+
+  // 禁用鼠标
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  // 块级
+  &.s-btn--block {
+    display: block;
+    width: 100%;
   }
 }
