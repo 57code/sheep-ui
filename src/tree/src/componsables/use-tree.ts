@@ -88,18 +88,18 @@ export function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     setChecked(node)
   }
   // 计算参考线高度
-  const getChildrenExpanded = (
-    node: IInnerTreeNode,
-    result: IInnerTreeNode[] = []
-  ) => {
-    // 获取当前节点的直接子节点
-    const childrenNodes = getChildren(node, false)
-    result.push(...childrenNodes)
-    childrenNodes.forEach(item => {
-      if (item.expanded) {
-        getChildrenExpanded(item, result)
-      }
-    })
+  const getChildrenExpanded = (node: IInnerTreeNode) => {
+    const result: IInnerTreeNode[] = []
+    // 找到node在列表中的索引
+    const startIndex = expandedTree.value.findIndex(item => item.id === node.id)
+    for (
+      let i = startIndex + 1;
+      i < expandedTree.value.length && node.level < expandedTree.value[i].level;
+      i++
+    ) {
+      result.push(expandedTree.value[i])
+    }
+    // 找到它后面所有的子节点(level比当前节点大)
     return result
   }
   return {
