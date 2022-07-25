@@ -3,7 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 // import HelloWorld from './components/HelloWorld.vue'
 import Test from './components/Test'
-import SButton from './button/src/Button'
+// import SButton from './button/src/Button'
 </script>
 
 <template>
