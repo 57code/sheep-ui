@@ -8,7 +8,8 @@ import SButton from './button/src/Button'
 
 <template>
   <test></test>
-  <s-button></s-button>
+  <s-button type="primary">确定</s-button>
+  <SButton>取消</SButton>
   <h1 class="text-3xl font-bold underline">Hello world!</h1>
 </template>
 
