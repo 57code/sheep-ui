@@ -10,12 +10,14 @@
     "lint": "eslint . --ext .ts,.vue",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "test": "vitest"
   },
   "dependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@testing-library/vue": "^6.6.1",
     "@types/node": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
@@ -26,6 +28,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.2.0",
+    "happy-dom": "^6.0.4",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "sass": "^1.54.0",
@@ -34,6 +37,7 @@
     "vite": "^3.0.0",
     "vitepress": "^1.0.0-alpha.4",
     "vitepress-theme-demoblock": "^1.4.2",
+    "vitest": "^0.19.0",
     "vue-tsc": "^0.38.4"
   }
 }
