@@ -57,5 +57,6 @@
 - TIX007：半城 报道
 - HarleenDance：绵羊羊  报道
 - weidaz: 小璋羊来报道！
+- laocu 报道！
 - hoganjobs: 橘羊羊来报道
 - betaqi: 小贝羊来报道
