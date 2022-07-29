@@ -1,6 +1,6 @@
 import { ExtractPropTypes, PropType } from 'vue'
 
-interface ITreeNode {
+export interface ITreeNode {
   label: string;
   id?: string;
   children?: ITreeNode[];
@@ -14,7 +14,7 @@ interface ITreeNode {
   disableToggle?: boolean;
 }
 
-interface IInnerTreeNode extends ITreeNode {
+export interface IInnerTreeNode extends ITreeNode {
   parentId?: string; // 父节点ID
   level: number;     // 节点层级
   isLeaf?: boolean;  // 是否叶子结点
