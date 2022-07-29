@@ -58,3 +58,4 @@
 - HarleenDance：绵羊羊  报道
 - weidaz: 小璋羊来报道！
 - hoganjobs: 橘羊羊来报道
+- betaqi: 小贝羊来报道
