@@ -40,6 +40,7 @@
 
 - Theseus：小小羊报道
 - yanzefeng：喜羊羊报道
+- 小鹿 报道
 - 冉羊羊 报道
 - walker报道
 - 羊羊举世无双
@@ -64,3 +65,6 @@
 - HarleenDance：绵羊羊  报道
 - weidaz: 小璋羊来报道！
 - liuwenlong916: 报道
+- laocu 报道！
+- hoganjobs: 橘羊羊来报道
+- betaqi: 小贝羊来报道
