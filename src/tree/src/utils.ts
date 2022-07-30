@@ -30,3 +30,4 @@ export function generateInnerTree(
     }
   }, [] as IInnerTreeNode[])
 }
+
