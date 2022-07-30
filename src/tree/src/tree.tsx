@@ -17,6 +17,7 @@ export default defineComponent({
             // 循环输出节点
             expendedTree.value.map((treeNode: IInnerTreeNode) => (
               <div
+                class="s-tree-node hover:bg-slate-300"
                 style={{
                   paddingLeft: `${24 * (treeNode.level - 1)}px`
                 }}

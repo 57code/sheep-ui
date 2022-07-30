@@ -1,6 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
-import Button from '../../../src/button/src/Button'
-import Tree from '../../../src/tree/src/tree'
+
+// 导入sheep-ui
+import SheepUI from '../../../scripts/entry'
+import '../../../src/styles/index.scss'
 
 // 主题样式
 import 'vitepress-theme-demoblock/theme/styles/index.css'
@@ -13,8 +15,7 @@ export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
     // register global components
-    app.component('s-button', Button)
-    app.component('STree', Tree)
+    app.use(SheepUI)
 
     // 注册DemoBlock所需组件
     app.component('Demo', Demo)
