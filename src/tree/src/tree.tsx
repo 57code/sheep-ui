@@ -16,7 +16,13 @@ export default defineComponent({
           {
             // 循环输出节点
             innerData.value.map(treeNode => (
-              <div>{treeNode.label}</div>
+              <div
+                style={{
+                  paddingLeft: `${24 * (treeNode.level - 1)}px`
+                }}
+              >
+                {treeNode.label}
+              </div>
             ))
           }
         </div>
