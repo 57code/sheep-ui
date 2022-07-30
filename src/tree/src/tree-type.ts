@@ -24,6 +24,11 @@ export const treeProps = {
   data: {
     type: Object as PropType<Array<ITreeNode>>,
     required: true
+  },
+  // 是否显示参考线
+  lineable: {
+    type: Boolean,
+    default: false
   }
 } as const
 

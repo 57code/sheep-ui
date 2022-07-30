@@ -32,23 +32,46 @@ export default function useTree(tree: ITreeNode[] | Ref<ITreeNode[]>) {
   })
 
   // 获取指定节点的子节点
-  const getChildren = (node: IInnerTreeNode): IInnerTreeNode[] => {
+  const getChildren = (node: IInnerTreeNode, recursive = true) => {
     const result = []
-    // 找到传入节点在列表中的索引
+    // 找到node 在列表中的索引
     const startIndex = innerData.value.findIndex(item => item.id === node.id)
-    // 找到它后面所有的子节点(level比指定节点大)
+    // 找到它后面所有子节点（level 比当前节点大）
     for (
       let i = startIndex + 1;
       i < innerData.value.length && node.level < innerData.value[i].level;
       i++
     ) {
-      result.push(innerData.value[i])
+      if (recursive) {
+        result.push(innerData.value[i])
+      } else if (node.level === innerData.value[i].level - 1) {
+        // 直接子节点
+        result.push(innerData.value[i])
+      }
     }
+    return result
+  }
+
+  // 计算参考线高度
+  const getChildrenExpanded = (
+    node: IInnerTreeNode,
+    result: IInnerTreeNode[] = []
+  ) => {
+    // 获取当前节点的直接子节点
+    const childrenNodes = getChildren(node, false)
+    result.push(...childrenNodes)
+    childrenNodes.forEach(item => {
+      if (item.expanded) {
+        getChildrenExpanded(item, result)
+      }
+    })
     return result
   }
 
   return {
     expendedTree,
-    toggleNode
+    toggleNode,
+    getChildren,
+    getChildrenExpanded
   }
 }

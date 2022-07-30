@@ -2,13 +2,21 @@ import { defineComponent, toRefs } from 'vue'
 import useTree from './composables/use-tree'
 import { IInnerTreeNode, TreeProps, treeProps } from './tree-type'
 
+// 节点高度
+const NODE_HEIGHT = 32
+
+// 节点缩进大小
+const NODE_INDENT = 24
+
 export default defineComponent({
   name: 'STree',
   props: treeProps,
   setup(props: TreeProps) {
     // 获取data
-    const { data } = toRefs(props)
-    const { toggleNode, expendedTree } = useTree(data.value)
+    const { data, lineable } = toRefs(props)
+    const { toggleNode, expendedTree, getChildrenExpanded } = useTree(
+      data.value
+    )
 
     return () => {
       return (
@@ -17,11 +25,24 @@ export default defineComponent({
             // 循环输出节点
             expendedTree.value.map((treeNode: IInnerTreeNode) => (
               <div
-                class="s-tree-node hover:bg-slate-300"
+                class="relative leading-8 hover:bg-slate-300"
                 style={{
-                  paddingLeft: `${24 * (treeNode.level - 1)}px`
+                  paddingLeft: `${NODE_INDENT * (treeNode.level - 1)}px`
                 }}
               >
+                {/* 连接线 */}
+                {!treeNode.isLeaf && treeNode.expanded && lineable.value && (
+                  <span
+                    class="s-tree-node__vline absolute w-px bg-slate-300"
+                    style={{
+                      height: `${
+                        NODE_HEIGHT * getChildrenExpanded(treeNode).length
+                      }px`,
+                      left: `${NODE_INDENT * (treeNode.level - 1) + 12}px`,
+                      top: `${NODE_HEIGHT}px`
+                    }}
+                  ></span>
+                )}
                 {/* 如果是叶子节点则放一个空白占位元素，否则放一个三角形反馈图标 */}
                 {treeNode.isLeaf ? (
                   <span
