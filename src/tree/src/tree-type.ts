@@ -29,6 +29,11 @@ export const treeProps = {
   lineable: {
     type: Boolean,
     default: false
+  },
+  // 是否显示复选框
+  checkable: {
+    type: Boolean,
+    default: false
   }
 } as const
 
