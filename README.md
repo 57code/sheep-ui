@@ -1,25 +1,16 @@
-<!--
- * @Descripttion: 
- * @version: 18.1.2
- * @Author: Harleens
- * @Date: 2022-06-28 18:58:25
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-07-29 19:30:46
--->
-
 # Sheep UI
 
 ## 项目由来
 
-这是村长[![img](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-fe__cunzhang-brightgreen)](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1-fe__cunzhang-brightgreen)模块课《Vue3开源组件库实战》的配套项目，旨在带大家参与开源、掌握组件库建设中的各种知识点，增加项目经验和编程能力，如果你对课程感兴趣可以添加微信咨询。
+这是村长模块课[Vue3开源组件库实战](https://duz.h5.xeknow.com/s/4dLsZR)的配套项目，旨在带大家参与开源、掌握组件库建设中的各种知识点，增加项目经验和编程能力，如果你想跟村长一起学习，可以添加微信（fe_cunzhang）咨询。
 
 ## 特性
 
-- Vue3 + Tsx
-- Vitepress文档
-- 原子化CSS风格
+- Vue3 + TSX
+- 基于Vitepress文档建设
+- TailWindCSS
 - CLI工具开发
-- Vitest测试
+- Vitest+test-library/vue组件测试
 - 10+典型组件
 
 ## 羊圈
