@@ -11,7 +11,7 @@ const NODE_INDENT = 24
 export default defineComponent({
   name: 'STree',
   props: treeProps,
-  setup(props: TreeProps) {
+  setup(props: TreeProps, { slots }) {
     // 获取data
     const { data, lineable, checkable } = toRefs(props)
     const { toggleNode, expendedTree, getChildrenExpanded, toggleCheckNode } =
@@ -50,6 +50,8 @@ export default defineComponent({
                       width: '25px'
                     }}
                   />
+                ) : slots.icon ? (
+                  slots.icon({ nodeData: treeNode, toggleNode })
                 ) : (
                   <svg
                     style={{
