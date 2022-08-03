@@ -83,7 +83,7 @@ export default defineComponent({
                 )}
 
                 {/* 节点文本 */}
-                {treeNode.label}
+                {slots.content ? slots.content(treeNode) : treeNode.label}
               </div>
             ))
           }
