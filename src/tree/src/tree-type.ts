@@ -34,6 +34,11 @@ export const treeProps = {
   checkable: {
     type: Boolean,
     default: false
+  },
+  // 是否显示操作按钮
+  operable: {
+    type: Boolean,
+    default: false
   }
 } as const
 
