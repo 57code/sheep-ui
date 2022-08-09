@@ -1,4 +1,5 @@
 import { defineComponent, inject, ref, toRefs } from 'vue'
+import { TreeUtils } from '../composables/use-tree-type'
 import { IInnerTreeNode } from '../tree-type'
 import { TreeNodeProps, treeNodeProps } from './tree-node-type'
 
@@ -7,14 +8,6 @@ const NODE_HEIGHT = 32
 
 // 节点缩进大小
 const NODE_INDENT = 24
-
-type TreeUtils = {
-  toggleNode: (treeNode: IInnerTreeNode) => void
-  toggleCheckNode: (treeNode: IInnerTreeNode) => void
-  getChildrenExpanded: (treeNode: IInnerTreeNode) => IInnerTreeNode[]
-  append: (parent: IInnerTreeNode, node: IInnerTreeNode) => void
-  remove: (node: IInnerTreeNode) => void
-}
 
 export default defineComponent({
   name: 'STreeNode',
