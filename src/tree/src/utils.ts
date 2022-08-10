@@ -23,8 +23,12 @@ export function generateInnerTree(
       // 将新构造的节点o和已拍平数据拼接起来
       return prev.concat(o, children)
     } else {
-      // 叶子节点的情况
-      o.isLeaf = true
+      // 叶子节点的情况:
+      // 如果是懒加载，isLeaf会被设置为false，则不需要设置
+      // 如果没有初始化，则默认设置为true
+      if (o.isLeaf === undefined) {
+        o.isLeaf = true
+      }
       // 将新构造的节点o和已拍平数据拼接起来
       return prev.concat(o)
     }

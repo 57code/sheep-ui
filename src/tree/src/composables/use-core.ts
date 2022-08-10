@@ -65,10 +65,15 @@ export function useCore(innerData: Ref<IInnerTreeNode[]>): IUseCore {
     return innerData.value.findIndex(item => item.id === node.id)
   }
 
+  const getNode = (node: IInnerTreeNode) => {
+    return innerData.value.find(item => item.id === node.id)
+  }
+
   return {
     expendedTree,
     getChildren,
     getChildrenExpanded,
-    getIndex
+    getIndex,
+    getNode
   }
 }

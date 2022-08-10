@@ -1,23 +1,25 @@
 import { ExtractPropTypes, PropType } from 'vue'
 
 export interface ITreeNode {
-  label: string;
-  id?: string;
-  children?: ITreeNode[];
+  label: string
+  id?: string
+  children?: ITreeNode[]
 
-  selected?: boolean; // 点击选中
-  checked?: boolean; // 勾选
-  expanded?: boolean; // 展开
+  selected?: boolean // 点击选中
+  checked?: boolean // 勾选
+  expanded?: boolean // 展开
 
-  disableSelect?: boolean;
-  disableCheck?: boolean;
-  disableToggle?: boolean;
+  disableSelect?: boolean
+  disableCheck?: boolean
+  disableToggle?: boolean
 }
 
 export interface IInnerTreeNode extends ITreeNode {
-  parentId?: string; // 父节点ID
-  level: number;     // 节点层级
-  isLeaf?: boolean;  // 是否叶子结点
+  parentId?: string // 父节点ID
+  level: number // 节点层级
+  isLeaf?: boolean // 是否叶子结点
+  loading?: boolean // 节点是否显示加载中
+  childNodeCount?: number // 该节点子节点的数量
 }
 
 export const treeProps = {
