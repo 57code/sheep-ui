@@ -482,3 +482,45 @@ export default defineComponent({
 </script>
 ```
 :::
+
+## 可拖拽树
+通过`dragdrop`属性配置节点的拖拽功能。
+:::demo
+```vue
+<template>
+  <h6><p>默认行为</p></h6>
+  <STree :data="data" dragdrop></STree>
+
+  <h6><p>排序</p></h6>
+  <STree :data="data" :dragdrop="{ dropPrev: true, dropNext: true, dropInner: true }"></STree>
+</template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const data = ref([
+      {
+        label: 'node 1',
+        id: 'node-1',
+        children: [
+          {
+            label: 'node 1-1',
+            id: 'node-1-1'
+          },
+        ]
+      },
+      {
+        label: 'node 2',
+        id: 'node-2'
+      },
+    ])
+
+    return {
+      data,
+    }
+  },
+})
+</script>
+```
+:::
