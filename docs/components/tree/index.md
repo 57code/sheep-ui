@@ -524,3 +524,31 @@ export default defineComponent({
 </script>
 ```
 :::
+
+## 虚拟滚动
+通过`height`开启虚拟滚动，通过`itemHeight`设置项目高度
+:::demo
+```vue
+<template>
+  <s-tree :data="data" :height="300"></s-tree>
+</template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const data = ref([
+      ...Array.from({ length: 1000 }).map((_, index) => ({
+        id: 'node ' + index,
+        label: 'node ' + index,
+      })),
+    ]);
+
+    return {
+      data
+    };
+  },
+});
+</script>
+```
+:::

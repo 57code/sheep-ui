@@ -47,6 +47,13 @@ export const treeProps = {
   dragdrop: {
     type: [Boolean, Object] as PropType<IDragdrop>,
     default: false
+  },
+  height: {
+    type: Number
+  },
+  itemHeight: {
+    type: Number,
+    default: 30
   }
 } as const
 
