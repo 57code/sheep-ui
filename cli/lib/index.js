@@ -37318,6 +37318,18 @@ export default defineComponent({
 `;
 }
 
+// src/template/types.ts
+function genTypesTemplate(name) {
+  const propsTypeName = upperFirst(name) + "Props";
+  const propsName = name + "Props";
+  return `import type { PropType, ExtractPropTypes } from 'vue'
+
+export const ${propsName} = {} as const
+
+export type ${propsTypeName} = ExtractPropTypes<typeof ${propsName}>
+`;
+}
+
 // src/template/style.ts
 function genStyleTemplate(name) {
   return `.s-${name} {
@@ -37374,7 +37386,7 @@ function createComponent(meta) {
   const coreFilePath = (0, import_path.resolve)(compSrcDir, meta.name) + ".tsx";
   (0, import_fs_extra2.writeFileSync)(coreFilePath, genCoreTemplate(meta.name), WRITE_FILE_OPTIONS);
   const typesFilePath = (0, import_path.resolve)(compSrcDir, meta.name + "-type.ts");
-  (0, import_fs_extra2.writeFileSync)(typesFilePath, genStyleTemplate(meta.name), WRITE_FILE_OPTIONS);
+  (0, import_fs_extra2.writeFileSync)(typesFilePath, genTypesTemplate(meta.name), WRITE_FILE_OPTIONS);
   const styleFilePath = styleDir + `/${meta.name}.scss`;
   (0, import_fs_extra2.writeFileSync)(styleFilePath, genStyleTemplate(meta.name), WRITE_FILE_OPTIONS);
   const testFilePath = testDir + `/${meta.name}.test.ts`;
