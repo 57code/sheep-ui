@@ -1,0 +1,54 @@
+$switch-height: () !default;
+$switch-height: map-merge(
+  (
+    'large': 40px,
+    'medium': 32px,
+    'small': 24px,
+  ),
+  $switch-height
+);
+$switch-font-size: () !default;
+$switch-font-size: map-merge(
+  (
+    'large': 14px,
+    'medium': 14px,
+    'small': 12px,
+  ),
+  $switch-font-size
+);
+$switch-core-border-radius: () !default;
+$switch-core-border-radius: map-merge(
+  (
+    'large': 12px,
+    'medium': 10px,
+    'small': 8px,
+  ),
+  $switch-core-border-radius
+);
+$switch-core-width: () !default;
+$switch-core-width: map-merge(
+  (
+    'large': 50px,
+    'medium': 40px,
+    'small': 30px,
+  ),
+  $switch-core-width
+);
+$switch-core-height: () !default;
+$switch-core-height: map-merge(
+  (
+    'large': 24px,
+    'medium': 20px,
+    'small': 16px,
+  ),
+  $switch-core-height
+);
+$switch-button-size: () !default;
+$switch-button-size: map-merge(
+  (
+    'large': 20px,
+    'medium': 16px,
+    'small': 12px,
+  ),
+  $switch-button-size
+);

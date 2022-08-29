@@ -1,0 +1,7 @@
+@import "function.scss";
+@import "config.scss";
+// @include set-css-var-value(('color', 'primary'), red);
+// --s-color-primary: red;
+@mixin set-css-var-value($name,$value){
+  #{joinVarName($name)}: #{$value};
+}

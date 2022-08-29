@@ -1,0 +1,13 @@
+@import "variable.scss";
+@import "_var.scss";
+:root{
+  @include set-css-var-value("color-white",$white-color);
+  @include set-css-var-value("text-color-primary",$primary-color);
+  @include set-css-var-value("color-primary",$primary-color);
+  @include set-css-var-value("primary-color",$primary-color);
+  // @include set-css-var-value("switch-border-color",$primary-color);
+  @include set-css-var-value("switch-off-color",#dcdfe6);
+  @include set-css-var-value("switch-on-color",$primary-color);
+  @include set-component-css-var('transition-duration', $transition-duration);
+  @include set-css-var-value("border-radius-circle","100%");
+}

@@ -15,3 +15,4 @@ export function isFunction(obj: any): obj is (...args: any[]) => any {
 export function isString(obj: any): obj is string {
   return typeof obj === 'string'
 }
+export const isUndefined = (val: any): val is undefined => val === undefined
