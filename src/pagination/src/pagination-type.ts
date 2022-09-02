@@ -12,6 +12,10 @@ export const paginationProps = {
   pagerCount: {
     type: Number,
     default: 7
+  },
+  modelValue: {
+    type: Number,
+    default: 1
   }
 } as const
 
