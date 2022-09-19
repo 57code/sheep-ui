@@ -16,7 +16,9 @@ const sidebar = [
     items: [{ text: 'Pagination 分页', link: '/components/pagination/' }]
   },
   { text: '反馈', items: [] },
-  { text: '数据录入', items: [] },
+  { text: '数据录入', items: [
+    { text: 'Form 表单', link: '/components/form/' }
+  ] },
   { text: '数据展示', items: [{ text: 'Tree 树', link: '/components/tree/' }] },
   { text: '布局', items: [] }
 ]
