@@ -50,6 +50,13 @@ export function useOperate(
     innerData.value = innerData.value.filter(
       item => item.id !== node.id && !childrentIds.includes(item.id)
     )
+
+    // 删除子节点之后 父节点如果没有了子节点就变成叶子节点
+    const parentNode = innerData.value.find(i => i.id === node.parentId)
+    if (parentNode) {
+      const parentChild = getChildren(parentNode as IInnerTreeNode, false)
+      parentNode.isLeaf = !parentChild.length
+    }
   }
   return {
     append,
