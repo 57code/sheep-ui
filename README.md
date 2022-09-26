@@ -62,3 +62,5 @@
 - betaqi: 小贝羊来报道
 - ArcticRug25 报到！
 - guopeng112997 报道
+- SkyRain：雨羊羊报道!
+- 西奥 报道
