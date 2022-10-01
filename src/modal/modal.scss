@@ -4,7 +4,7 @@
     margin: 15vh auto 50px;
     background: #fff;
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
     box-sizing: border-box;
     width: 30%;
   }
@@ -15,6 +15,20 @@
     padding-bottom: 10px;
     margin-right: 16px;
     word-break: break-all;
+  }
+
+  &__close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+
+    &:hover {
+      cursor: pointer;
+
+      path {
+        fill: #409eff;
+      }
+    }
   }
 
   &__body {
