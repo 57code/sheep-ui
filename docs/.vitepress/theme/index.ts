@@ -11,6 +11,10 @@ import './demoblock.scss'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
 
+// 引入字体图标css
+import './iconfont.css'
+import './iconfont.js'
+
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
