@@ -7,12 +7,16 @@ import Test from './components/Test'
 // import SButton from './button/src/Button'
 import VirtualList from './components/VirtualList.vue'
 import SBaseModal from './modal/base-modal'
+import STabs from './tab/tabs'
+import STab from './tab/tab'
 
 const modalVisible = ref(false)
 
 const open = () => {
   modalVisible.value = true
 }
+
+const activeTab = ref('tab1')
 </script>
 
 <template>
@@ -34,6 +38,11 @@ const open = () => {
       <img src="./assets/sheep.webp" />
     </div>
   </SBaseModal>
+  <s-tabs v-model="activeTab">
+    <s-tab id="tab1" title="Tab1">Tab1 Content</s-tab>
+    <s-tab id="tab2" title="Tab2">Tab2 Content</s-tab>
+    <s-tab id="tab3" title="Tab3">Tab3 Content</s-tab>
+  </s-tabs>
 </template>
 
 <style scoped>
