@@ -58,6 +58,7 @@ export default defineComponent({
             <li
               onClick={() => changeTab(tab.id)}
               class={tab.id === activeTab.value ? 'active' : ''}
+              key={tab.id}
             >
               {tab.title}
               {/* 关闭页签 */}
