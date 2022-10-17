@@ -7,6 +7,7 @@ import FormPlugin, { Form } from '../src/form'
 import InputPlugin, { Input } from '../src/input'
 import ModalPlugin, { Modal } from '../src/modal'
 import IconPlugin, { Icon } from '../src/icon'
+import TabPlugin, { Tabs, Tab } from '../src/tab'
 
 const installs = [
   ButtonPlugin,
@@ -15,10 +16,11 @@ const installs = [
   FormPlugin,
   InputPlugin,
   ModalPlugin,
-  IconPlugin
+  IconPlugin,
+  TabPlugin
 ]
 
-export { Button, Tree, Pagination, Form, Input, Modal, Icon }
+export { Button, Tree, Pagination, Form, Input, Modal, Icon, Tabs, Tab }
 
 export default {
   version: '0.0.1',

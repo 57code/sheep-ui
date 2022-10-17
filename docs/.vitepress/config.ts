@@ -16,7 +16,10 @@ const sidebar = [
   },
   {
     text: '导航',
-    items: [{ text: 'Pagination 分页', link: '/components/pagination/' }]
+    items: [
+      { text: 'Pagination 分页', link: '/components/pagination/' },
+      { text: 'Tab 选项卡', link: '/components/tabs/' },
+    ]
   },
   { text: '反馈', items: [
     { text: 'Modal 模态框', link: '/components/modal/' }
