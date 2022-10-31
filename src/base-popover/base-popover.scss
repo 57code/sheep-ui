@@ -1,0 +1,15 @@
+.s-base-popover {
+  position: absolute; // 必要的
+  background-color: #fff;
+  z-index: 1;
+  // 箭头样式
+  &__arrow {
+    position: absolute;
+    background: #fff;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    z-index: -1;
+    border: solid 1px #e4e7ed;
+  }
+}

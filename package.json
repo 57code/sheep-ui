@@ -15,6 +15,7 @@
     "build:components": "node ./scripts/build.cjs"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.0.2",
     "async-validator": "^4.2.5",
     "vue": "^3.2.37"
   },
