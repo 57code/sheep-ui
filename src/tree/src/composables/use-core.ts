@@ -4,7 +4,7 @@ import { IUseCore } from './use-tree-type'
 
 export function useCore(innerData: Ref<IInnerTreeNode[]>): IUseCore {
   // 获取那些展开的节点列表
-  const expendedTree = computed(() => {
+  const expandedTree = computed(() => {
     let excludeNodes: IInnerTreeNode[] = []
     const result = []
 
@@ -74,7 +74,7 @@ export function useCore(innerData: Ref<IInnerTreeNode[]>): IUseCore {
   }
 
   return {
-    expendedTree,
+    expandedTree,
     getChildren,
     getChildrenExpanded,
     getIndex,

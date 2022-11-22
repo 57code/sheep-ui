@@ -2,7 +2,7 @@ import { ComputedRef, Ref } from 'vue'
 import { IInnerTreeNode, ITreeNode } from '../tree-type'
 
 export type IUseCore = {
-  expendedTree: ComputedRef<IInnerTreeNode[]>
+  expandedTree: ComputedRef<IInnerTreeNode[]>
   getChildren: (node: IInnerTreeNode, recursive?: boolean) => IInnerTreeNode[]
   getChildrenExpanded: (treeNode: IInnerTreeNode) => IInnerTreeNode[]
   getIndex: (node: IInnerTreeNode) => number
