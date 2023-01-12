@@ -1,0 +1,144 @@
+// button/src/button.scss
+// 定义主题变量
+$s-border-radius: var(--s-border-radius, 2px); //一般圆角
+$s-font-size-md: var(--s-font-size-md, 12px); //当组件size为''时使用此字号大小
+$s-animation-duration-slow: var(--s-animation-duration-slow, 300ms);
+$s-animation-ease-in-out-smooth: var(
+  --s-animation-ease-in-out-smooth,
+  cubic-bezier(0.645, 0.045, 0.355, 1)
+);
+$s-light-text: var(--s-light-text, #ffffff); // 有色深色背景下字体颜色（固定）
+$s-primary: var(--s-primary, #5e7ce0); // 主要按钮，同品牌色
+$s-primary-hover: var(--s-primary-hover, #7693f5); // 主要按钮悬停
+$s-primary-active: var(--s-primary-active, #344899); // 主要按钮激活
+$s-text: var(--s-text, #252b3a); // 正文文本
+$s-block: var(
+  --s-block,
+  #ffffff
+); // 大面积的不可折叠区块的背景色（例如顶部导航背景色）
+$s-line: var(--s-line, #adb0b8); // 边框分割线，仅用于边框
+$s-form-control-line-active: var(
+  --s-form-control-line-active,
+  #5e7ce0
+); // 表单控件边框激活色，用于获得焦点
+$s-brand-active: var(--s-brand-active, #526ecc); // 品牌色激活色（加深）
+$s-brand-active-focus: var(
+  --s-brand-active-focus,
+  #344899
+); // 品牌色焦点色（重度加深）
+
+$s-font-size-sm: var(--s-font-size-md, 10px); //当组件size为''时使用此字号大小
+$s-font-size-md: var(--s-font-size-md, 12px); //当组件size为''时使用此字号大小
+$s-font-size-lg: var(--s-font-size-md, 14px); //当组件size为''时使用此字号大小
+
+$s-primary-disabled: var(--s-primary-disabled, #98a8df); // 主要按钮禁用状态
+$s-disabled-text: var(--s-disabled-text, #757a83); // 禁用文本
+$s-disabled-bg: var(--s-disabled-bg, #c6c9cf); // 禁用背景
+$s-disabled-line: var(--s-disabled-line, #a5a8ad); // 禁用边框
+
+.s-btn {
+  // 布局样式
+  @apply inline-flex items-center justify-center;
+
+  // 元素属性
+  @apply border-[1px] border-solid border-transparent 
+  h-[28px] py-0 px-[20px]
+  bg-transparent;
+  border-radius: $s-border-radius;
+
+  // 文本属性
+  @apply outline-0 leading-normal whitespace-nowrap
+     cursor-pointer;
+
+  // 文字样式
+  font-size: $s-font-size-md;
+
+  // 其他样式
+  transition: background-color $s-animation-duration-slow
+      $s-animation-ease-in-out-smooth,
+    border-color $s-animation-duration-slow $s-animation-ease-in-out-smooth,
+    color $s-animation-duration-slow $s-animation-ease-in-out-smooth;
+
+  // 主要按钮
+  &.s-btn--primary {
+    color: $s-light-text;
+    background-color: $s-primary;
+
+    &:hover,
+    &:focus {
+      background-color: $s-primary-hover;
+    }
+    &:active {
+      background-color: $s-primary-active;
+    }
+    &:disabled {
+      color: $s-light-text;
+      background: $s-primary-disabled;
+      border: none;
+    }
+  }
+
+  // 次要按钮
+  &.s-btn--secondary {
+    color: $s-text;
+    background-color: $s-block;
+    border-color: $s-line;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $s-form-control-line-active;
+      color: $s-brand-active;
+    }
+    &:disabled {
+      color: $s-disabled-text;
+      background: $s-disabled-bg;
+      border: 1px solid $s-disabled-line;
+    }
+  }
+
+  // 文字按钮
+  &.s-btn--text {
+    padding: 0;
+    color: $s-brand-active;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $s-brand-active-focus;
+    }
+    &:disabled {
+      color: $s-disabled-text;
+    }
+  }
+
+  // small尺寸
+  &.s-btn--small {
+    height: 24px;
+    padding: 0 16px;
+    font-size: $s-font-size-sm;
+  }
+
+  // 次要按钮
+  &.s-btn--medium {
+    font-size: $s-font-size-md;
+  }
+
+  // 文字按钮
+  &.s-btn--large {
+    height: 32px;
+    padding: 0 24px;
+    font-size: $s-font-size-lg;
+  }
+
+  // 禁用鼠标
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  // 块级
+  &.s-btn--block {
+    display: block;
+    width: 100%;
+  }
+}

@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 build
-build/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,4 +23,3 @@ build/
 *.njsproj
 *.sln
 *.sw?
-.history

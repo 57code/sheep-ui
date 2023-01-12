@@ -1,53 +1,44 @@
-import { defineConfig } from 'vitepress'
+import { demoBlockPlugin } from 'vitepress-theme-demoblock'
 
-const sidebar = {
-  '/': [
-    { text: '快速开始', link: '/', items: [] },
-    {
-      text: '通用',
-      items: [{ text: 'Button 按钮', link: '/components/button/' }]
-    },
-    { text: '导航', items: [] },
-    { text: '反馈', items: [] },
-    {
-      text: '数据录入',
-      items: [{ text: 'Input 输入框', link: '/components/input/' }]
-    },
-    { text: '数据展示', items: [
-      { text: 'Tree 树', link: '/components/tree/' }
-    ] },
-    { text: '布局',
-      items:[
-        { text:'Space 间距',link:'/components/space/'}
-      ]
-    }
-  ]
-}
-
-export default defineConfig({
-  themeConfig: {
-    sidebar,
-    nav: [
-      { text: '向导', link: '/guide' },
-      {
-        text: '课程',
-        items: [
-          { text: 'Vue3组件库开发实战', link: '/course/vue3-comps' },
-          { text: 'Vue3源码全家桶', link: '/course/vue-source' }
-        ]
-      }
-    ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/57code/sheep-ui' }
+const sidebar = [
+  {
+    text: '快速开始',
+    items: [
+      { text: '安装', link: '/guide/install' } // /guide/install.md
     ]
   },
+  {
+    text: '通用',
+    items: [
+      { text: 'Button 按钮', link: '/components/button/' },
+      { text: 'Icon 图标', link: '/components/icon/' }
+    ]
+  },
+  {
+    text: '导航',
+    items: [
+      { text: 'Pagination 分页', link: '/components/pagination/' },
+      { text: 'Tab 选项卡', link: '/components/tabs/' },
+    ]
+  },
+  { text: '反馈', items: [
+    { text: 'Modal 模态框', link: '/components/modal/' }
+  ] },
+  { text: '数据录入', items: [
+    { text: 'Form 表单', link: '/components/form/' }
+  ] },
+  { text: '数据展示', items: [{ text: 'Tree 树', link: '/components/tree/' }] },
+  { text: '布局', items: [] }
+]
+
+export default {
+  themeConfig: {
+    sidebar
+  },
   markdown: {
-    config(md) {
-      // 这里可以使用markdown-it插件
-      const { demoBlockPlugin } = require('vitepress-theme-demoblock')
-      md.use(demoBlockPlugin, {
-        cssPreprocessor: 'scss'
-      })
+    config: md => {
+      // 这里可以使用 markdown-it 插件，vitepress-theme-demoblock就是基于此开发的
+      md.use(demoBlockPlugin)
     }
   }
-})
+}

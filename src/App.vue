@@ -1,93 +1,73 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+// import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import Test from './components/Test'
+// import SButton from './button/src/Button'
+import VirtualList from './components/VirtualList.vue'
+import SBaseModal from './modal/base-modal'
+import STabs from './tab/tabs'
+import STab from './tab/tab'
+import SPopover from './popover/popover'
 
-import { reactive } from 'vue'
+const modalVisible = ref(false)
 
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-const tree = [
-  {
-    label: 'docs',
-    id: 'docs'
-  },
-  {
-    label: 'packages',
-    id: 'packages',
-    expanded: true,
-    children: [
-      {
-        label: 'plugin-vue',
-        id: 'plugin-vue'
-      },
-      {
-        label: 'vite',
-        id: 'vite',
-        expanded: true,
-        children: [
-          {
-            label: 'src',
-            id: 'src'
-          },
-          {
-            label: 'README.md',
-            id: 'README.md'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'scripts',
-    id: 'scripts',
-    children: [
-      {
-        label: 'release.ts',
-        id: 'release.ts'
-      },
-      {
-        label: 'verifyCommit.ts',
-        id: 'verifyCommit.ts'
-      }
-    ]
-  },
-  {
-    label: 'pnpm-workspace.yaml',
-    id: 'pnpm-workspace.yaml'
-  }
-]
-const TreeData = reactive(tree)
-const handleClick = (e: MouseEvent) => {
-  console.log(e)
+// const open = () => {
+//   modalVisible.value = true
+// }
+
+const activeTab = ref('tab1')
+
+const visible = ref(false)
+const host = ref()
+const open = () => {
+  visible.value = !visible.value
 }
 </script>
 
 <template>
-  <STrigger
-    :default-popup-visible="true"
-    trigger="click"
-    :unmount-on-close="true"
+  <!-- <test></test>
+  <s-button type="primary">确定</s-button>
+  <SButton>取消</SButton>
+  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <VirtualList></VirtualList> -->
+  <!-- <button @click="open">打开</button>
+  <SBaseModal v-model="modalVisible">
+    <div
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      "
+    >
+      <img src="./assets/sheep.webp" />
+    </div>
+  </SBaseModal>
+  <s-tabs v-model="activeTab" closable addable>
+    <s-tab id="tab1" title="Tab1">Tab1 Content</s-tab>
+    <s-tab id="tab2" title="Tab2">Tab2 Content</s-tab>
+    <s-tab id="tab3" title="Tab3">Tab3 Content</s-tab>
+  </s-tabs> -->
+  <div ref="host" class="host" @click="open">host</div>
+  <SPopover v-model="visible" :host="host" title="Title" show-arrow
+    >overlay</SPopover
   >
-    <STree :data="TreeData" />
-    <SButton @click="handleClick">Click me</SButton>
-    <template #content>
-      <div class="demo-basic">luanhanxiao is a good man</div>
-    </template>
-  </STrigger>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
 }
-.demo-basic {
-  padding: 10px;
-  width: 200px;
-  background-color: var(--color-bg-popup);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px #00000026;
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>

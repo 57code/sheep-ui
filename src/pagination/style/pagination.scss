@@ -1,0 +1,17 @@
+.s-pagination {
+  display: flex;
+}
+
+.s-pager {
+  list-style: none !important;
+  display: flex;
+  padding-left: 0;
+  li {
+    margin-top: 0 !important;
+    padding: 0 4px;
+    cursor: pointer;
+  }
+  li.current {
+    color: rgb(96, 96, 255);
+  }
+}

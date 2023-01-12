@@ -1,16 +1,28 @@
-import Theme from 'vitepress/theme'
-import './demo-block.scss'
-import '../../../src/index.scss'
-import {registerComponents} from './register-components'
-import SheepUI from '../../../src/index'
-import type {App} from 'vue'
+import DefaultTheme from 'vitepress/theme'
+
+// 导入sheep-ui
+import SheepUI from '../../../scripts/entry'
+import '../../../src/styles/index.scss'
+
+// 主题样式
+import 'vitepress-theme-demoblock/theme/styles/index.css'
+import './demoblock.scss'
+// 插件的组件，主要是demo组件
+import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
+import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
+
+// 引入字体图标css
+import './iconfont.css'
+import './iconfont.js'
 
 export default {
-  ...Theme,
-  // 扩展应用程序实例
-  enhanceApp({app}:{app:App<never>}) {
-    // 注册组件
-    registerComponents(app)
+  ...DefaultTheme,
+  enhanceApp({ app }) {
+    // register global components
     app.use(SheepUI)
+
+    // 注册DemoBlock所需组件
+    app.component('Demo', Demo)
+    app.component('DemoBlock', DemoBlock)
   }
 }

@@ -1,6 +1,0 @@
-{
-  "compilerOptions": {
-    "outDir": "./build",
-    "module": "commonjs"
-  }
-}

@@ -1,10 +1,9 @@
-import type { App } from 'vue'
-import { ArrowDownIcon as _ArrowDownIcon } from './arrow-down'
+import { App } from 'vue'
+import { ArrowDownIcon } from './arrow-down'
 
-const ArrowDownIcon = {
-  install: (app: App) => {
-    app.component('ArrowDownIcon', _ArrowDownIcon)
+export { ArrowDownIcon }
+export default {
+  install(app: App) {
+    app.component('ArrowDownIcon', ArrowDownIcon)
   }
 }
-
-export default ArrowDownIcon

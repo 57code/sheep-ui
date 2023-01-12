@@ -1,20 +1,16 @@
-  .s-tree {
-    /* your component style */
-    &-node{
-      text-align: left;
+.s-tree {
+  .s-tree__node {
+    &--content {
+      border: 1px solid transparent
     }
-    .s-tree-checkbox__inner {
-      @apply absolute;
-      position: absolute;
-      left: 0px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      background: #5468ff;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 2px;
+    &--drop-inner {
+      border: 1px solid silver
+    }
+    &--drop-next {
+      border-bottom: 1px solid silver
+    }
+    &--drop-prev {
+      border-top: 1px solid silver
     }
   }
+}
