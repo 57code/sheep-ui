@@ -49,7 +49,7 @@ export default defineComponent({
             // 如果设置了height，则添加虚拟列表
             <div style={{ height: `${height.value}px` }}>
               <VirtualList
-                data={treeData.expendedTree.value}
+                data={treeData.expandedTree.value}
                 itemHeight={itemHeight.value}
               >
                 {{
@@ -60,7 +60,7 @@ export default defineComponent({
             </div>
           ) : (
             // 没有height，则正常输出节点
-            treeData.expendedTree.value.map((treeNode: IInnerTreeNode) =>
+            treeData.expandedTree.value.map((treeNode: IInnerTreeNode) =>
               TreeNode(treeNode)
             )
           )}
