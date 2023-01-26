@@ -58,6 +58,7 @@ export default defineComponent({
             <li
               onClick={() => changeTab(tab.id)}
               class={tab.id === activeTab.value ? 'active' : ''}
+              key={tab.id}
             >
               {tab.title}
               {/* 关闭页签 */}
@@ -95,7 +96,7 @@ export default defineComponent({
 
         {/* 显示新增的内容 */}
         {tabsData.value
-          .filter(tab => tab.type === 'random')
+          .filter(tab => tab.type === 'random' && tab.id === activeTab.value)
           .map(tab => (
             <div class="s-tab">{tab.content}</div>
           ))}
