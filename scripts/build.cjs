@@ -7,6 +7,9 @@ const { defineConfig, build } = require('vite')
 const vue = require('@vitejs/plugin-vue')
 const vueJsx = require('@vitejs/plugin-vue-jsx')
 
+const inquirer = require('inquirer')
+let version
+
 const entryFile = path.resolve(__dirname, './entry.ts')
 // 组件目录
 const componentsDir = path.resolve(__dirname, '../src')
@@ -32,7 +35,7 @@ const createPackageJson = name => {
   // 根据传入name决定包名、主文件和主模块名称
   const fileStr = `{
     "name": "${name ? name : 'sheep-ui'}",
-    "version": "0.0.0",
+    "version": "${version}",
     "main": "${name ? 'index.umd.js' : 'sheep-ui.umd.js'}",
     "module": "${name ? 'index.js' : 'sheep-ui.js'}",
     "author": "杨村长",
@@ -104,6 +107,33 @@ const buildAll = async () => {
 }
 
 const buildLib = async () => {
+  if (/^\d+(?:\.\d+){2}$/.test(process.argv.slice(2)[0])) {
+    //npm run build 版本号会执行
+    version = process.argv.slice(2)[0]
+  } else if (
+    process.argv.slice(2)[0] == '--v' ||
+    process.argv.slice(2)[0] == '--version'
+  ) {
+    // node ./scripts/build.js --v 版本号 或 node ./scripts/build.js --version 版本号 或 yarn build --v 版本号 或 yarn build --version 版本号 会执行
+    version = process.argv.slice(2)[1]
+  } else if (!/^\d+(?:\.\d+){2}$/.test(version)) {
+    // 没有版本号或者版本号不正确会执行
+    let { version: res } = await inquirer.prompt({
+      name: 'version',
+      type: 'input',
+      message: '（必填）请输入版本号 ，将用min-sheep-ui发布于使用：',
+      validate: value => {
+        if (value.trim() === '') {
+          return '版本号不能为空'
+        }
+        if (!/^\d+(?:\.\d+){2}$/.test(value)) {
+          return '版本号格式不正确，版本号一个为 0.0.0 这种格式'
+        }
+        return true
+      }
+    })
+    version = res
+  }
   await buildAll()
   // 创建单组件包
   // 获取组件名称组成的数组

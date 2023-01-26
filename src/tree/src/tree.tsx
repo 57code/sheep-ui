@@ -12,13 +12,21 @@ export default defineComponent({
   emits: ['lazy-load'],
   setup(props: TreeProps, context: SetupContext) {
     // 获取data
-    const { data, height, itemHeight } = toRefs(props)
+    const { data, height, itemHeight, accordion } = toRefs(props)
     const { slots } = context
     const treeData = useTree(data.value, props, context)
     provide('TREE_UTILS', treeData)
     return () => {
       const TreeNode = (treeNode: IInnerTreeNode) => (
-        <STreeNode {...props} treeNode={treeNode}>
+        <STreeNode
+          {...props}
+          treeNode={treeNode}
+          onClick={
+            accordion.value
+              ? (e: Event) => treeData.toggleNode(e, treeNode, accordion.value)
+              : ''
+          }
+        >
           {{
             content: () =>
               slots.content ? slots.content(treeNode) : treeNode.label,
@@ -31,8 +39,10 @@ export default defineComponent({
               ) : (
                 <STreeNodeToggle
                   expanded={!!treeNode.expanded}
-                  onClick={() => treeData.toggleNode(treeNode)}
-                ></STreeNodeToggle>
+                  onClick={(e: Event) =>
+                    treeData.toggleNode(e, treeNode, accordion.value)
+                  }
+                />
               ),
             loading: () =>
               slots.loading ? (

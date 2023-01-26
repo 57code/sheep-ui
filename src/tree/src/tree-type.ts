@@ -9,6 +9,7 @@ export interface ITreeNode {
   selected?: boolean // 点击选中
   checked?: boolean // 勾选
   expanded?: boolean // 展开
+  inChecked?: boolean // 待选中
 
   disableSelect?: boolean
   disableCheck?: boolean
@@ -54,6 +55,10 @@ export const treeProps = {
   itemHeight: {
     type: Number,
     default: 30
+  },
+  accordion: {
+    type: Boolean,
+    default: false
   }
 } as const
 

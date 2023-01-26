@@ -552,3 +552,97 @@ export default defineComponent({
 </script>
 ```
 :::
+
+## 手风琴模式
+
+`accordion`对于同一级的节点，每次只能展开一个
+:::demo
+```vue
+<template>
+  <s-tree :data="data" accordion />
+</template>
+<script setup>
+import { ref } from 'vue'
+const data = ref([
+  {
+    label: '一级 1',
+    id:'一级 1',
+    children: [
+      {
+      label: '二级 1-1',
+      id:'二级 1-1',
+      children: [
+        {
+          label: '三级 1-1-1', 
+          id:'三级 1-1-1'
+        }
+        ]
+      }
+    ]
+  },
+  {
+    label: '一级 2', 
+    id:'一级 2',
+    children: [
+      {
+        label: '二级 2-1',
+        id:'二级 2-1',
+        children: [
+          {
+            label: '三级 2-1-1',
+            id:'三级 2-1-1'
+          }
+        ]
+      },
+      {
+        label: '二级 2-2', 
+        id:'二级 2-2',
+        children: [
+          {
+            label: '三级 2-2-1',
+            id:'三级 2-2-1',
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: '一级 3',
+    id:'一级 3',
+    children: [
+      {
+        label: '二级 3-1',
+        id:'二级 3-1',
+        children: [
+          {
+            label: '三级 3-1-1',
+            id:'三级 3-1-1'
+          }
+        ]
+      },
+      {
+        label: '二级 3-2',
+        id:'二级 3-2',
+        children: [
+          {
+            label: '三级 3-2-1',
+            id:'三级 3-2-1'
+          }
+        ]
+      }
+    ]
+  }
+])
+</script>
+```
+:::
+
+## Tree API
+### Tree 属性
+
+| 属性名    | 说明                             | 类型      | 可选值 | 默认值 | 备注   |
+| --------- | -------------------------------- | --------- | ------ | ------ | ------ |
+| data      | 展示数据                         |           | —      | —      |        |
+| draggable | 是否开启拖拽节点功能             | `boolean` | —      | false  |        |
+| lineable  | 连接线                           | `boolean` | —      | false  |        |
+| accordion | 是否每次只打开一个同级树节点展开 | `boolean` | —      | false  |        |

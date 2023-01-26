@@ -4,7 +4,7 @@ import { IUseCheck, IUseCore, IUseToggle } from './use-tree-type'
 
 export function useCheck(
   innerData: Ref<IInnerTreeNode[]>,
-  { getChildren }: IUseCore
+  { getChildren, getParent }: IUseCore
 ): IUseCheck {
   const toggleCheckNode = (treeNode: IInnerTreeNode) => {
     // 父节点可能一开始没有设置checked
@@ -15,25 +15,31 @@ export function useCheck(
     getChildren(treeNode).forEach(child => {
       child.checked = treeNode.checked
     })
-
-    // 子-父联动
+    setChecked(treeNode)
+  }
+  // 子-父联动 并且设置父节点选中内容
+  const setChecked = (node: IInnerTreeNode) => {
     // 获取父节点
-    const parentNode = innerData.value.find(
-      item => item.id === treeNode.parentId
-    )
+    const parentNode = getParent(node)
     // 如果没有父节点，则没必要处理子到父的联动
     if (!parentNode) return
-    // 获取兄弟节点：只是一个特殊的getChildren，仅获取父节点直接子节点，需要改造getChildren
-    const siblingNodes = getChildren(parentNode, false)
-    const checkedSiblingNodes = siblingNodes.filter(item => item.checked)
-
-    if (checkedSiblingNodes.length === siblingNodes.length) {
-      // 如果所有兄弟节点都被勾选，则设置父节点的checked属性为true
-      parentNode.checked = true
-    } else if (checkedSiblingNodes.length === 0) {
-      // 否则设置父节点的checked属性为false
-      parentNode.checked = false
+    // 获取兄弟节点：相当于获取 parentNode 的直接子节点
+    const siblingNodes = getChildren(parentNode, true)
+    // 兄弟节点是否全部选中状态
+    const siblingCheckStatus = siblingNodes.every(sibling => sibling.checked)
+    // 所有兄弟节点均选中，父节点应该被选中
+    parentNode.checked = siblingCheckStatus
+    const siblingIncheckedStatus = siblingNodes.some(child => child.checked)
+    if (siblingCheckStatus) {
+      // 全部选中
+      parentNode.inChecked = false
+    } else if (siblingIncheckedStatus) {
+      // 兄弟节点中存在选中的节点
+      parentNode.inChecked = true
+    } else {
+      parentNode.inChecked = false
     }
+    if (parentNode.parentId) setChecked(parentNode)
   }
   return {
     toggleCheckNode
