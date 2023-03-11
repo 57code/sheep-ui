@@ -26,9 +26,18 @@ export default defineComponent({
           {data.value.map((row: any) => {
             return (
               <tr>
-                {columnData.value.map((column: ColumnContext) => {
-                  return <td>{row[column.field!]}</td>
-                })}
+                {columnData.value.map(
+                  (column: ColumnContext, index: number) => {
+                    // 如果存在默认插槽内容，则优先渲染之
+                    const columnSlot = slots.default?.()[index]
+                    if (columnSlot?.children) {
+                      return (
+                        <td>{(columnSlot?.children as any).default?.(row)}</td>
+                      )
+                    }
+                    return <td>{column.field ? row[column.field!] : ''}</td>
+                  }
+                )}
               </tr>
             )
           })}

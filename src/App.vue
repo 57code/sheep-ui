@@ -8,6 +8,10 @@ const tableData = [
     address: 'No. 189, Grove St, Los Angeles'
   }
 ]
+
+const editRow = (row: any) => {
+  console.log('editRow', row)
+}
 </script>
 
 <template>
@@ -15,6 +19,13 @@ const tableData = [
     <Column field="date" header="Date"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="address" header="Address"></Column>
+    <Column header="操作">
+      <template #default="row">
+        <button @click="editRow(row)">编辑</button>
+        <button>删除</button>
+      </template>
+
+    </Column>
   </Table>
 </template>
 
