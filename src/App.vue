@@ -1,21 +1,38 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Table, Column } from './table'
 
-const tableData = [
+const tableData = ref([
+  {
+    date: '2016-05-03',
+    name: 'Mark',
+    address: 'No. 189, Grove St, Los Angeles',
+    checked: true
+  },
+  {
+    date: '2016-05-03',
+    name: 'Mark',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
   {
     date: '2016-05-03',
     name: 'Mark',
     address: 'No. 189, Grove St, Los Angeles'
   }
-]
+])
 
 const editRow = (row: any) => {
   console.log('editRow', row)
 }
+
+const onSelectionChange = (checkedRows: any) => {
+  console.log('checkedRows', checkedRows)
+}
 </script>
 
 <template>
-  <Table :data="tableData">
+  <Table :data="tableData" @selection-change="onSelectionChange">
+    <Column type="selection"></Column>
     <Column field="date" header="Date"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="address" header="Address"></Column>
@@ -24,7 +41,6 @@ const editRow = (row: any) => {
         <button @click="editRow(row)">编辑</button>
         <button>删除</button>
       </template>
-
     </Column>
   </Table>
 </template>
