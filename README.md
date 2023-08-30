@@ -53,7 +53,7 @@
 - 王吉 报道
 - (?): 猪羊羊报道
 - TIX007：半城 报道
-- HarleenDance：绵羊羊  报道
+- HarleenDance：绵羊羊 报道
 - weidaz: 小璋羊来报道！
 - xxx 懒洋洋报道
 - liuwenlong916: 报道
@@ -70,3 +70,4 @@
 - vlone 报道
 - 波比 报道
 - shaka 沙卡羊来报道
+- power 小羊来报道
