@@ -70,3 +70,4 @@
 - vlone 报道
 - 波比 报道
 - shaka 沙卡羊来报道
+- herman 报道
